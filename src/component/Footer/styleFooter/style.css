@@ -1,0 +1,39 @@
+
+.footer {
+    background-color: white; 
+    color: #f8f9fa;
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 1rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+    width: 100%;
+    position: fixed; 
+    margin-top: auto;
+    z-index: 1000;  
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer p {
+    margin: 0;
+    color: black;
+    transition: color 0.3s ease-in-out;
+  }
+  
+.footer p:hover {
+    color: blue; 
+  }
+
+html, body {
+    height: 100%; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column; 
+  }
+  
+
+.main-content {
+    flex: 1;
+  }
+  

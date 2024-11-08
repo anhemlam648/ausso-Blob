@@ -1,0 +1,133 @@
+/* src/components/StyleLogin/style.css */
+html, body {
+    height: 100%;  /* Chiều cao 100% cho toàn bộ trang */
+    margin: 0;     /* Bỏ margin mặc định của body */
+}
+
+
+.login-container {
+    background-image: url("../../../assets/backgroundLogin.jpg");
+    background-size: cover;
+    background-position: center; 
+    height: 100vh;  
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 0; 
+    margin: 0; 
+    box-sizing: border-box;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
+    bottom: 0;
+}
+/* Container form đăng nhập */
+.login-form-container {
+    background-color: rgba(255, 255, 255, 0.9);  
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    box-shadow: none; 
+}
+
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: blue;
+    transition: all 0.3s ease;  
+}
+
+h3:hover {
+    color: #ffffff;  
+    padding: 5px 0;  
+    border-radius: 5px;  
+}
+
+/* Nhóm input (Username, Password) */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Checkbox (Remember me) */
+.form-check {
+    margin-bottom: 20px;
+    margin-left: -11.25rem;
+}
+
+.form-checkbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #343a40;
+}
+
+/* Button Submit */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.btn-submit:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Link quên mật khẩu */
+.forgot-password {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.forgot-password-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}

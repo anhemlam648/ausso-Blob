@@ -1,10 +1,10 @@
 // import { useState } from "react";
 import Header from "../component/Header/Header";
 import Footer from "../component/Footer/Footer";
-
+import '../component/Style/Style.css'
 function ChatAPI(){
     return(
-        <div>
+        <div className="ChatBot">
             <Header />
             <div>Hello</div>
             <Footer />

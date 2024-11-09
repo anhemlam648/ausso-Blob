@@ -4,7 +4,7 @@ import '../Header/styleHeader/style.css';
 
 function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar"> {/* Thêm class custom-navbar */}
+    <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar" > 
       <div className="container-fluid">
         {/* Logo hoặc Tên */}
         <Link className="navbar-brand" to="/">CMCTS</Link>
@@ -18,14 +18,14 @@ function Header() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link page" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" to="/dashboard">Dashboard</Link>
+              <Link className="nav-link dashboard" to="/dashboard">Dashboard</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link login" to="/login">Login</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

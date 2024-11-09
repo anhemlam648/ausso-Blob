@@ -1,4 +1,4 @@
-
+/* Cấu trúc tổng quan */
 .footer {
     background-color: white; 
     color: #f8f9fa;
@@ -13,11 +13,13 @@
     bottom: 0;
     left: 0;
     right: 0;
+    background: linear-gradient(to right, #007bff, #00d4ff);
 }
 
+/* Tiêu đề */
 .footer p {
     margin: 0;
-    color: black;
+    color: white;
     transition: color 0.3s ease-in-out;
   }
   
@@ -32,7 +34,7 @@ html, body {
     flex-direction: column; 
   }
   
-
+/* Content */
 .main-content {
     flex: 1;
   }

@@ -1,0 +1,278 @@
+/* Container và cấu trúc tổng quan */
+.dashboard-container {
+  background: linear-gradient(to right, #ff7700, #00d4ff); 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; 
+  bottom: 0;
+}
+
+/* Header và Footer */
+.Header, .Footer {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Tiêu đề của trang */
+.Title {
+  text-align: center;
+  font-size: 36px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.Title:hover {
+  color: blue;
+  transition: color 0.3s ease;
+}
+
+/* Phần nội dung chính */
+.dashboard-body {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-body h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Nút login, logout và upload */
+.buttonLogin, .buttonLogout, .upload-button, .delete-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 50px;
+}
+
+.buttonLogin {
+  background-color: #0078d4;
+  color: white;
+  width: 100%;
+}
+
+.buttonLogin:hover {
+  background-color: #005a9e;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.buttonLogout {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttonLogout:hover {
+  background-color: #d21f1a;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.upload-buttons-container {
+  display: flex;
+  gap: 20px; 
+  justify-content: center; 
+  margin-top: 20px;
+}
+
+
+.upload-button {
+  background-color: #28a745;
+  color: white;
+  
+}
+
+.upload-button:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #e6b800;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Chỉnh sửa input và text */
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #0078d4;
+}
+
+/* Phần hiển thị thông báo */
+.upload-section {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.upload-section p {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Hiệu ứng khi tải trang */
+.dashboard-body {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Footer */
+.dashboard-footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.875rem;
+  margin-top: 40px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dashboard-container {
+      padding: 10px;
+  }
+
+  .dashboard-body {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .Title {
+      font-size: 28px;
+  }
+
+  .buttonLogin, .buttonLogout, .upload-button, .delete-button {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+}
+
+/* Container cho phần upload-status */
+.upload-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Căn chỉnh các phần tử theo chiều dọc */
+  align-items: center; 
+  justify-content: flex-start; /* Các phần tử sẽ xếp theo chiều dọc */
+}
+/* hiển thị thông báo uploadStatus */
+.upload-status {
+  margin-top: 95px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+  line-height: 1.5; 
+}
+
+/* Upload thành công */
+.upload-status.success {
+  background-color: #28a745; 
+  color: white;
+  border: 1px solid #218838;
+}
+
+/* Upload thất bại */
+.upload-status.error {
+  background-color: #dc3545; 
+  color: white;
+  border: 1px solid #c82333;
+}
+
+/* Khi đang Upload */
+.upload-status.uploading {
+  background-color: #ffc107; 
+  color: black;
+  border: 1px solid #e0a800;
+}
+
+/* Khoảng cách giữa nút Upload và thông báo */
+.upload-buttons-container {
+  display: flex;
+  gap: 20px; 
+  justify-content: center; 
+  margin-top: 20px;
+}
+
+/* Button Upload và Delete */
+.upload-button, .delete-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+

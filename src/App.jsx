@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ChatAPI from './component/ChatAPI';
 import Dashboard from './component/Dashboard/dashboard';
-import Login from './component/Login/login'
+// import Login from './component/Login/login'
 function App() {
 
 
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<ChatAPI />}>Home</Route> 
-        <Route path='/login' element={<Login />}>Home</Route> 
+        {/* <Route path='/' element={<Login />}>Home</Route>  */}
         <Route path='/dashboard' element={<Dashboard />}>Home</Route> 
       </Routes>
     </Router>

@@ -1,3 +1,4 @@
+/* Cấu trúc tổng quan */
 .custom-navbar {
     background-color: #343a40; 
     position: fixed; 
@@ -6,12 +7,14 @@
     right: 0;
     z-index: 1000; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    background: linear-gradient(to right, #007bff, #00d4ff);
   }
   
+  /* Navbar */
   .custom-navbar .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
-    color: blue; 
+    color: white; 
     text-transform: uppercase; 
   }
   
@@ -20,15 +23,18 @@
   }
   
   .custom-navbar .nav-link:hover {
-    color: #f8f9fa; 
-    background-color: #495057; 
+    color: rgb(0, 183, 255); 
+    background-color: white; 
+    border: 5px;
+    border-radius: 10px;
+    padding: 8px;
   }
   
   .custom-navbar .navbar-toggler-icon {
     background-color: #fff; 
   }
   
- 
+   /* Design with android */
   @media (max-width: 991px) {
     .custom-navbar .navbar-nav {
       text-align: center; 
@@ -44,8 +50,9 @@
     padding-top: 80px; 
   }
 
+  /* Navbar Link */
   .nav-link.login {
-    color: black; 
+    color: white; 
     padding-right: 15px; 
     padding-left: 15px; 
   }
@@ -56,4 +63,20 @@
     /* right: 0;
     left: 0; */
     text-align: center;
+  }
+
+  .nav-link.page {
+    color: white;
+  }
+
+  .nav-link.dashboard{
+    color: white;
+  }
+  /* Button Login */
+  .buttonLogin{
+    color: #007bff;
+    width: 15%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 8px;
   }

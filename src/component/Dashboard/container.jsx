@@ -3,13 +3,14 @@ import axios from "axios";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import './StyleDashboard/styleFile.css';
-
+import { useNavigate } from "react-router-dom"; 
 function Container() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [containers, setContainers] = useState([]);
- 
-
+//   const [files, setFiles] = useState([]);  // State lưu danh sách các file khi nhấn vào Manage
+//   const [selectedContainer, setSelectedContainer] = useState(null);  // Container đã chọn
+  const navigate = useNavigate();
   // Kiểm tra tính xác thực người dùng
   const checkAuth = async () => {
     try {
@@ -59,6 +60,11 @@ function Container() {
     window.location.href = "http://localhost:5010/api/v1/login";
   };
 
+  const handleManageClick = (containerName) => {
+    // Điều hướng đến trang hiển thị files của container
+    navigate(`/files/${containerName}`); // Sử dụng navigate thay vì history.push
+  };
+
   // useEffect để kiểm tra xác thực khi component được mount
   useEffect(() => {
     checkAuth();
@@ -80,27 +86,45 @@ function Container() {
             {!userInfo ? (
               <p>Loading user data...</p>
             ) : (
-              <><h2 className="Title_User">Welcome</h2>
-                {/* <h2 className="Title_User">Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
-              </>
+              <h2 className="Title_User">Welcome</h2>
             )}
 
             {/* List Container Blob */}
             <div className="container-list">
-            {containers.length === 0 ? (
+              {containers.length === 0 ? (
                 <p>No containers available.</p>
-            ) : (
+              ) : (
                 <div className="container-cards">
-                {containers.map((container, index) => (
+                  {containers.map((container, index) => (
                     <div key={index} className="container-card">
-                    <h4>{container}</h4>
-                    <p>Some description or status here.</p>
-                    <button className="btn-container-action">Manage</button>
+                      <h4>{container}</h4>
+                      <button
+                        className="btn-container-action"
+                        onClick={() => handleManageClick(container)} // Gọi API khi nhấn Manage
+                      >
+                        Manage
+                      </button>
                     </div>
-                ))}
+                  ))}
                 </div>
-            )}
+              )}
             </div>
+{/* 
+            Hiển thị các file trong container khi đã chọn
+            {selectedContainer && (
+              <div className="file-list">
+                <h3>Files in {selectedContainer}:</h3>
+                {files.length === 0 ? (
+                  <p>No files available.</p>
+                ) : (
+                  <ul>
+                    {files.map((file, index) => (
+                      <li key={index}>{file}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )} */}
           </div>
         )}
       </div>

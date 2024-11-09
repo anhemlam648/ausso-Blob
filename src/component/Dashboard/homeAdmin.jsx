@@ -8,12 +8,12 @@ function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
 
-  // Kiểm tra tính xác thực khi component được mount
+
   useEffect(() => {
     checkAuth();
   }, []);
 
-  // Kiểm tra xem người dùng có xác thực hay không
+  
   const checkAuth = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/check-auth", {
@@ -21,7 +21,7 @@ function AdminDashboard() {
       });
       if (response.data.isAuthenticated) {
         setIsAuthenticated(true);
-        fetchUserInfo();  // Lấy thông tin người dùng nếu đã xác thực
+        fetchUserInfo();  
       } else {
         setIsAuthenticated(false);
       }
@@ -30,7 +30,7 @@ function AdminDashboard() {
     }
   };
 
-  // Lấy thông tin người dùng sau khi xác thực
+
   const fetchUserInfo = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/user-info", {
@@ -42,7 +42,7 @@ function AdminDashboard() {
     }
   };
 
-  // Xử lý login
+  
   const handleLogin = () => {
     window.location.href = "http://localhost:5010/api/v1/login";
   };

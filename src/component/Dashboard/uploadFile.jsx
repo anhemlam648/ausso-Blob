@@ -35,7 +35,7 @@ function Uploadfile(){
         }
       };
     
-      // User info
+
       const fetchUserInfo = async () => {
         try {
           const response = await axios.get("http://localhost:5010/api/v1/user-info", {
@@ -49,12 +49,12 @@ function Uploadfile(){
         }
       };
     
-    // Xử lý Login
+
       const handleLogin = () => {
         window.location.href = "http://localhost:5010/api/v1/login";
       };
     
-      // Xử lý logout
+
       const handleLogout = async () => {
         try {
           await axios.post("http://localhost:5010/api/v1/logout", {}, { withCredentials: true });
@@ -91,10 +91,10 @@ function Uploadfile(){
             withCredentials: true,
           });
       
-          // Kiểm tra phản hồi
+       
           if (response.data.message === "Files uploaded successfully") {
             setUploadStatus("File uploaded successfully!");
-            // In thông tin file upload
+            
             response.data.files.forEach((file) => {
               console.log(`File uploaded: ${file.filename}`);
               console.log(`SAS URL: ${file.sas_url}`);
@@ -181,10 +181,10 @@ function Uploadfile(){
               </>
             )}
              
-             {/* Đăng xuất */}
+
             <button onClick={handleLogout} className="buttonLogout">Logout</button>
              
-            {/* Upload và Delete file trên Blob */}
+      
             <div className="upload-section">
               <input type="file" onChange={handleFileChange} />
               <div className="upload-buttons-container">

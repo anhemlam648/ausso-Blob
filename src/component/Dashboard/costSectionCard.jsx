@@ -68,7 +68,7 @@ function CostSectionCard(){
         try {
           const response = await axios.get("http://localhost:5010/api/v1/get-cost-management");
           if (response.data) {
-            setAzureCostData(response.data); // Lưu dữ liệu chi phí vào state
+            setAzureCostData(response.data); //  state Storage
           }
         } catch (error) {
           console.error("Failed to fetch Azure cost data", error);

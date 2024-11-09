@@ -18,7 +18,7 @@
   /* bottom: 0; */
 }
 
-/* Tiêu đề trang Admin */
+
 .Title {
   text-align: center;
   font-size: 36px;
@@ -34,7 +34,7 @@
   transition: color 0.3s ease;
 }
 
-/* Hiệu ứng khi tải trang */
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -46,7 +46,7 @@
   }
 }
 
-/* Tiêu đề Welcome */
+
 .Title_User {
   font-size: 28px;
   font-weight: 600;
@@ -55,10 +55,10 @@
   animation: fadeInUp 1.5s ease-out;
   opacity: 0;
   animation-delay: 0.5s;
-  animation-fill-mode: forwards; /* Đảm bảo giữ lại trạng thái sau khi hoàn thành */
+  animation-fill-mode: forwards; 
 }
 
-/* Nút Login và Logout */
+
 .buttonLogin, .buttonLogout, .upload-button, .delete-button {
   padding: 12px 25px;
   font-size: 16px;
@@ -102,7 +102,6 @@
   margin-top: 20px;
 }
 
-/* Hiệu ứng button hover */
 .upload-button {
   background-color: #28a745;
   color: white;
@@ -123,7 +122,7 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Hiệu ứng cho upload status */
+
 .upload-status {
   margin-top: 20px;
   padding: 10px 20px;
@@ -158,7 +157,7 @@
   border: 1px solid #e0a800;
 }
 
-/* Hiệu ứng khi file đang tải */
+
 .upload-status.uploading {
   background-color: #f8e71c;
   color: black;
@@ -174,7 +173,7 @@
   }
 }
 
-/* Container cho phần upload-status */
+
 .upload-section {
   margin-top: 15px;
   padding: 20px;
@@ -190,7 +189,7 @@
   justify-content: flex-start; 
 }
 
-/* Hiệu ứng phần thông báo upload status */
+
 .upload-status {
   bottom: 45px;
   margin-top: -20px;
@@ -199,7 +198,7 @@
   z-index: 9999;
 }
 
-/* Hiệu ứng cho khi tải trang */
+
 .dashboard-body {
   opacity: 0;
   transform: translateY(-20px);
@@ -213,7 +212,7 @@
   }
 }
 
-/* Hiệu ứng nút và input */
+
 input[type="file"] {
   display: block;
   width: 100%;
@@ -228,7 +227,7 @@ input[type="file"]:hover {
   border-color: #0078d4;
 }
 
-/* Hiệu ứng khi hover vào nút upload */
+
 .upload-buttons-container button {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
@@ -238,7 +237,7 @@ input[type="file"]:hover {
   background-color: #0069d9;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .dashboard-container {
       padding: 10px;
@@ -261,8 +260,8 @@ input[type="file"]:hover {
 .container-list {
   margin: 20px;
   padding: 10px;
-  max-height: 400px; /* Giới hạn chiều cao của phần container-list */
-  overflow-y: auto; /* Thêm thanh cuộn dọc khi nội dung vượt quá chiều cao */
+  max-height: 400px; 
+  overflow-y: auto; 
 }
 
 .container-cards {
@@ -356,9 +355,9 @@ input[type="file"]:hover {
 .file-item span {
   font-size: 16px;
 }
-/* Style cho phần chứa các link tải về */
+
 .download-links {
-  margin-top: 20px;  /* Tạo khoảng cách giữa các phần */
+  margin-top: 20px;  
   padding: 10px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
@@ -377,7 +376,7 @@ input[type="file"]:hover {
   line-height: 1.5; 
 }
 
-/* Style cho tiêu đề của phần "Download Links" */
+
 .download-links h3 {
   margin-bottom: 10px;
   font-size: 1.2rem;
@@ -385,7 +384,7 @@ input[type="file"]:hover {
   color: #333;
 }
 
-/* Style cho danh sách link tải */
+
 .download-links ul {
   list-style-type: none;
   padding: 0;
@@ -395,7 +394,6 @@ input[type="file"]:hover {
   margin: 5px 0;
 }
 
-/* Style cho mỗi link tải */
 .download-links a {
   color: #007bff;
   text-decoration: none;

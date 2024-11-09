@@ -6,7 +6,6 @@ function Header() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar" > 
       <div className="container-fluid">
-        {/* Logo hoặc Tên */}
         <Link className="navbar-brand" to="/dashboard">CMCTS</Link>
         {/* <Link className="navbar-brand" to="/dashboard">CMCTS</Link> */}
         {/* Button để toggle menu trên màn hình nhỏ */}

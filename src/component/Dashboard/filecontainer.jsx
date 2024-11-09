@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom"; // Import useParams để lấy containerName từ URL
+import { useParams } from "react-router-dom"; 
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import './StyleDashboard/styleFile.css';
@@ -8,10 +8,10 @@ import './StyleDashboard/styleFile.css';
 function FileContainer() {
   const { containerName } = useParams(); 
   const [files, setFiles] = useState([]); 
-  const [selectedFiles, setSelectedFiles] = useState([]);  // State để lưu các file đã chọn
+  const [selectedFiles, setSelectedFiles] = useState([]);  // State storage
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const [downloadUrls, setDownloadUrls] = useState([]);
-  // Kiểm tra tính xác thực người dùng
+  // check user
   const checkAuth = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/check-auth", {
@@ -27,14 +27,14 @@ function FileContainer() {
     }
   };
 
-  // Fetch danh sách file trong container
+  // Fetch list file in container
   const fetchFilesInContainer = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/get-blob", {
         params: { container: containerName },
       });
       if (response.data && response.data.files) {
-        setFiles(response.data.files);  // Lưu danh sách file vào state
+        setFiles(response.data.files);  
       }
     } catch (error) {
       console.error("Failed to fetch files", error);
@@ -45,7 +45,7 @@ function FileContainer() {
   const handleCheckboxChange = (fileName) => {
     setSelectedFiles((prevSelected) => {
       if (prevSelected.includes(fileName)) {
-        return prevSelected.filter(file => file !== fileName);  // Nếu đã chọn thì bỏ chọn
+        return prevSelected.filter(file => file !== fileName);  
       } else {
         return [...prevSelected, fileName];  
         
@@ -53,7 +53,7 @@ function FileContainer() {
     });
   };
 
-//   // Tải xuống các file đã chọn
+
 //   const handleDownload = async () => {
 //     try {
 //       if (selectedFiles.length === 0) {
@@ -117,59 +117,58 @@ function FileContainer() {
             return;
           }
       
-          // Mảng để lưu các URL download
           const downloadLinks = [];
       
-          // Lặp qua từng file đã chọn và lấy URL download
+          // for file
           for (const file of selectedFiles) {
-            // Gọi API để lấy URL tải file
+            // handle url
             const response = await axios.get(`http://localhost:5010/api/v1/download-files`, {
               params: { container: containerName, blob: file },
               withCredentials: true,  // 
             });
       
-            // Lấy URL download từ phản hồi API
+            // Get URL
             const downloadUrl = response.data.url;
       
             if (downloadUrl) {
-              // Thêm URL vào mảng downloadLinks
+              // Add URL 
               downloadLinks.push({
                 fileName: file,
                 url: downloadUrl
               });
             }
           }
-          setDownloadUrls(downloadLinks);  // Giả sử bạn có state downloadUrls để lưu trữ danh sách các URL
+          setDownloadUrls(downloadLinks);  // save State
         } catch (error) {
           console.error("Download failed", error);
         }
       };
-  // Xóa các file đã chọn
+  // Delete selected file
   const handleDelete = async () => {
     try {
       if (selectedFiles.length === 0) {
         alert("Please select files to delete.");
         return;
       }
-      // Gọi API hoặc logic xử lý xóa các file
+      // Handle file
       selectedFiles.forEach(async (file) => {
         await axios.delete(`http://localhost:5010/api/v1/delete-files?container=${containerName}&blob=${file}`, 
         //   data: { file, container: containerName },
             { withCredentials: true },
         );
       });
-      // Sau khi xóa xong, cập nhật lại danh sách file
+      // Update list file persent
       fetchFilesInContainer();
     } catch (error) {
       console.error("Delete failed", error);
     }
   };
 
-  // useEffect để kiểm tra 
+  // useEffect Check
   useEffect(() => {
     checkAuth();
-    fetchFilesInContainer(); // Fetch files khi đã xác thực và container đã được lấy từ URL
-  }, [containerName]); // Khi containerName change, gọi lại API
+    fetchFilesInContainer(); // Fetch files get URL
+  }, [containerName]); //reload API
 
   return (
     <div className="upload-container">
@@ -184,7 +183,7 @@ function FileContainer() {
           </div>
         ) : (
           <div>
-            {/* Hiển thị các file trong container */}
+            {/* Show file in container */}
             {files.length === 0 ? (
               <p>No files available.</p>
             ) : (

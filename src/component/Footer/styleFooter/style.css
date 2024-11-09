@@ -1,4 +1,4 @@
-/* Cấu trúc tổng quan */
+/* Footer */
 .footer {
     background-color: white; 
     color: #f8f9fa;
@@ -16,7 +16,7 @@
     background: linear-gradient(to right, #007bff, #00d4ff);
 }
 
-/* Tiêu đề */
+/* Title */
 .footer p {
     margin: 0;
     color: white;

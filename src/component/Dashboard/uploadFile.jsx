@@ -3,12 +3,13 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import './StyleDashboard/style.css'
-function Dashboard(){
+import './StyleDashboard/styleFile.css'
+function Uploadfile(){
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
     const [file, setFile] = useState(null);
     const [uploadStatus, setUploadStatus] = useState(null);
+    // const [azureCostData, setAzureCostData] = useState(null);
     // useEffect(() => {
     //     fetch("/api/v1/user-info")
     //       .then((response) => response.json())
@@ -86,7 +87,7 @@ function Dashboard(){
         try {
           setUploadStatus("Uploading...");
       
-          const response = await axios.post("http://localhost:5010/api/v1/upload-file-blob", formData, {
+      const response = await axios.post("http://localhost:5010/api/v1/upload-file-blob", formData, {
             withCredentials: true,
           });
       
@@ -145,15 +146,25 @@ function Dashboard(){
           // console.error("Delete failed", error);
         }
       };
-      
+      // const fetchAzureCost = async () => {
+      //   try {
+      //     const response = await axios.get("http://localhost:5010/api/v1/get-cost-management");
+      //     if (response.data) {
+      //       setAzureCostData(response.data); // Lưu dữ liệu chi phí vào state
+      //     }
+      //   } catch (error) {
+      //     console.error("Failed to fetch Azure cost data", error);
+      //   }
+      // };
       useEffect(() => {
         checkAuth();
+        // fetchAzureCost();
       }, []);
       return (
-        <div className="dashboard-container">
+        <div className="upload-container">
         <Header />
         <div className="App">
-          <h1 className="Title">Admin CMCTS</h1>
+          <h1 className="Title">Upload Management</h1>
           {!isAuthenticated ? (
             <div>
               <button onClick={handleLogin} className="buttonLogin">Login with Microsoft</button>
@@ -164,14 +175,17 @@ function Dashboard(){
               <p>Loading user data...</p>
             ) : (
               <>
-            <h2>Welcome</h2>
+            <h2 className="Title_User">Welcome</h2>
                 {/* <h2>Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
                 {/* <p>User Info: {JSON.stringify(userInfo)}</p> */}
               </>
             )}
+             
+             {/* Đăng xuất */}
             <button onClick={handleLogout} className="buttonLogout">Logout</button>
+             
+            {/* Upload và Delete file trên Blob */}
             <div className="upload-section">
-              <h3>Upload a file</h3>
               <input type="file" onChange={handleFileChange} />
               <div className="upload-buttons-container">
               <button onClick={handleFileUpload} className="upload-button">Upload</button>
@@ -191,4 +205,4 @@ function Dashboard(){
         </div>
       );
     }
-export default Dashboard;
+export default Uploadfile;

@@ -1,0 +1,324 @@
+/* Container và cấu trúc tổng quan */
+.upload-container {
+  background: linear-gradient(to right, #ffffff, #00aaff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.2s ease;
+  min-height: 100vh;
+  flex-direction: column;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  /* z-index: 1000;  */
+  /* bottom: 0; */
+}
+
+/* Tiêu đề trang Admin */
+.Title {
+  text-align: center;
+  font-size: 36px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease-out;
+}
+
+.Title:hover {
+  color: blue;
+  transition: color 0.3s ease;
+}
+
+/* Hiệu ứng khi tải trang */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tiêu đề Welcome */
+.Title_User {
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1.5s ease-out;
+  opacity: 0;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards; /* Đảm bảo giữ lại trạng thái sau khi hoàn thành */
+}
+
+/* Nút Login và Logout */
+.buttonLogin, .buttonLogout, .upload-button, .delete-button {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 50px;
+}
+
+.buttonLogin {
+  background-color: #0078d4;
+  color: white;
+  width: 100%;
+}
+
+.buttonLogin:hover {
+  background-color: #005a9e;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.buttonLogout {
+  margin-top: 5px;
+  background-color: #f44336;
+  color: white;
+}
+
+.buttonLogout:hover {
+  background-color: #d21f1a;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.upload-buttons-container {
+  display: flex;
+  gap: 20px; 
+  justify-content: center; 
+  margin-top: 20px;
+}
+
+/* Hiệu ứng button hover */
+.upload-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.upload-button:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #e6b800;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng cho upload status */
+.upload-status {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+  line-height: 1.5; 
+}
+
+.upload-status.success {
+  background-color: #28a745; 
+  color: white;
+  border: 1px solid #218838;
+}
+
+.upload-status.error {
+  background-color: #dc3545; 
+  color: white;
+  border: 1px solid #c82333;
+}
+
+.upload-status.uploading {
+  background-color: #ffc107; 
+  color: black;
+  border: 1px solid #e0a800;
+}
+
+/* Hiệu ứng khi file đang tải */
+.upload-status.uploading {
+  background-color: #f8e71c;
+  color: black;
+  animation: flash 1.5s infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #f8e71c;
+  }
+  100% {
+    background-color: #ffcc00;
+  }
+}
+
+/* Container cho phần upload-status */
+.upload-section {
+  margin-top: 15px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: flex-start; 
+}
+
+/* Hiệu ứng phần thông báo upload status */
+.upload-status {
+  bottom: 45px;
+  margin-top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
+
+/* Hiệu ứng cho khi tải trang */
+.dashboard-body {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Hiệu ứng nút và input */
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #0078d4;
+}
+
+/* Hiệu ứng khi hover vào nút upload */
+.upload-buttons-container button {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.upload-buttons-container button:hover {
+  transform: translateY(-3px);
+  background-color: #0069d9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+      padding: 10px;
+  }
+
+  .dashboard-body {
+      width: 100%;
+      padding: 20px;
+  }
+
+  .Title {
+      font-size: 28px;
+  }
+
+  .buttonLogin, .buttonLogout, .upload-button, .delete-button {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+}
+.container-list {
+  margin: 20px;
+  padding: 10px;
+  max-height: 400px; /* Giới hạn chiều cao của phần container-list */
+  overflow-y: auto; /* Thêm thanh cuộn dọc khi nội dung vượt quá chiều cao */
+}
+
+.container-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.container-card {
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.container-card p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #bdc3c7;
+}
+
+.container-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-container-action {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-container-action:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.azure-cost-section.card{
+  background-color: #00aaff;
+  background: linear-gradient(to right, #ffffff, #00aaff);
+}
+

@@ -1,8 +1,8 @@
-.ChatBot{
-    background: linear-gradient(to right, #ff7700, #00d4ff); 
+/* Container và cấu trúc tổng quan */
+.home-container {
+    background: linear-gradient(to right, #ffffff, #00aaff);
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
@@ -17,4 +17,6 @@
     right: 0;
     z-index: 1000; 
     bottom: 0;
-}
+  }
+  
+  

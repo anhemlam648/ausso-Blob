@@ -68,7 +68,7 @@ function CostSectionCard(){
         try {
           const response = await axios.get("http://localhost:5010/api/v1/get-cost-management");
           if (response.data) {
-            setAzureCostData(response.data); //  state Storage
+            setAzureCostData(response.data); // Lưu dữ liệu chi phí vào state
           }
         } catch (error) {
           console.error("Failed to fetch Azure cost data", error);
@@ -82,10 +82,10 @@ function CostSectionCard(){
         <div className="upload-container">
         <Header />
         <div className="App">
-        <h1 className="Title">Management Section</h1>
+        <h1 className="Title">Container Management Section</h1>
           {!isAuthenticated ? (
             <div>
-              <button onClick={handleLogin} className="buttonLogin">Login with Microsoft</button>
+              <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
             </div>
           ) : (
             <div>
@@ -93,7 +93,7 @@ function CostSectionCard(){
               <p>Loading user data...</p>
             ) : (
               <>
-            <h2 className="Title_User">Welcome</h2>
+              <h2 className="Title_User">Welcome</h2>
                 {/* <h2>Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
                 {/* <p>User Info: {JSON.stringify(userInfo)}</p> */}
               </>

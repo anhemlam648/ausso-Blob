@@ -1,5 +1,5 @@
-
-.footer {
+/* Footer */
+.footerClient {
     background-color: white; 
     color: #f8f9fa;
     text-align: center; 
@@ -16,13 +16,14 @@
     background: linear-gradient(to right, #007bff, #00d4ff);
 }
 
-.footer p {
+/* Title */
+.footerClient p {
     margin: 0;
     color: white;
     transition: color 0.3s ease-in-out;
   }
   
-.footer p:hover {
+.footerfooterClient p:hover {
     color: blue; 
   }
 
@@ -33,7 +34,7 @@ html, body {
     flex-direction: column; 
   }
   
-
+/* Content */
 .main-content {
     flex: 1;
   }

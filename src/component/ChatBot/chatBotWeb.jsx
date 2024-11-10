@@ -51,72 +51,62 @@ function ChatBotWeb() {
   };
 
   // Xử lý gửi yêu cầu chat tới back-end
-  // Xử lý gửi yêu cầu chat tới back-end
-const handleChatSubmit = async () => {
-  if (message.trim() === "") return;  // Nếu không có tin nhắn, không làm gì
+  const handleChatSubmit = async () => {
+    if (message.trim() === "") return;
+    setLoading(true);
+    try {
+      if (message.includes("send file")) {
+        const fileName = "example-file.txt";  // Giả có một tên file nào đó
+        await handleFetchSasUrl(fileName);  // Gọi để lấy SAS URL cho file
+      }
+      
+      const chatRequest = {
+        history: history,  
+        question: message,  
+        file_name: sourceFile,  
+      };
 
-  setLoading(true);  // Bật trạng thái loading
-  try {
-    let botResponse = '';
-    // Kiểm tra xem người dùng có muốn gửi file hay không
-    if (message.includes("send file") && selectedFile) {
-      const fileName = selectedFile.name;  // Lấy tên file từ input người dùng
-      await handleFetchSasUrl(fileName);  // Gọi hàm để lấy SAS URL cho file nếu cần
+      const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        responseType: 'stream', 
+      });
+
+      const reader = response.data.getReader();
+      const decoder = new TextDecoder();
+      let botResponse = '';
+
+      // Tạo phần tử div cho phản hồi của bot và thêm vào lịch sử trò chuyện
+      const botResponseDiv = document.createElement('div');
+      botResponseDiv.className = 'bot'; 
+      botResponseDiv.innerHTML = 'Bot: '; 
+      document.querySelector('.chat-history').appendChild(botResponseDiv);
+
+      // Đọc dữ liệu từng phần (chunk) từ stream
+      while (true) {
+        const { value, done } = await reader.read();  
+        if (done) break; 
+
+        const chunk = decoder.decode(value, { stream: true });  
+        botResponse += chunk;  
+
+        // Cập nhật UI với phần dữ liệu mới
+        botResponseDiv.innerHTML = 'Bot: ' + botResponse.replace(/\n/g, '<br>');
+        document.querySelector('.chat-history').scrollTop = document.querySelector('.chat-history').scrollHeight;  // Cuộn xuống dưới
+      }
+
+      // Lưu lịch sử chat sau khi bot trả lời xong
+      setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse, file: sourceFile }]);
+      handleCombieAndSummary();
+    } catch (error) {
+      console.error("Error while submitting message:", error);
+      setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+    } finally {
+      setLoading(false); 
+      setMessage("");  
     }
-
-    // Tạo đối tượng request gửi đến server
-    const chatRequest = {
-      history: history,  
-      question: message,  
-      file_name: sourceFile,  // Đây có thể là tên file hoặc thông tin file từ trước đó
-    };
-
-    // Gửi request tới back-end
-    const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      responseType: 'stream',  // Để nhận dữ liệu dưới dạng stream
-    });
-
-    const reader = response.data.getReader();  // Đọc dữ liệu stream từ response
-    const decoder = new TextDecoder();
-    let botResponseDiv = document.createElement('div');
-    botResponseDiv.className = 'bot'; 
-    botResponseDiv.innerHTML = 'Bot: '; 
-    document.querySelector('.chat-history').appendChild(botResponseDiv);
-
-    // Đọc từng phần dữ liệu từ stream
-    while (true) {
-      const { value, done } = await reader.read();  
-      if (done) break;  // Nếu đọc xong stream thì thoát
-
-      const chunk = decoder.decode(value, { stream: true });
-      botResponse += chunk;
-
-      // Cập nhật giao diện với phần dữ liệu mới
-      botResponseDiv.innerHTML = 'Bot: ' + botResponse.replace(/\n/g, '<br>');
-      document.querySelector('.chat-history').scrollTop = document.querySelector('.chat-history').scrollHeight;  // Cuộn xuống cuối cùng
-    }
-
-    // Lưu lịch sử chat sau khi bot trả lời xong
-    setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse, file: sourceFile }]);
-
-    // Xử lý kết hợp và tóm tắt (nếu có)
-    handleCombieAndSummary();
-
-  } catch (error) {
-    console.error("Error while submitting message:", error);
-    // Nếu có lỗi, hiển thị thông báo lỗi
-    setHistory(prevHistory => [
-      ...prevHistory, 
-      { user: message, bot: "Sorry, something went wrong. Please try again." }
-    ]);
-  } finally {
-    setLoading(false);  // Tắt trạng thái loading
-    setMessage("");  // Xóa nội dung tin nhắn
-  }
-};
+  };
 
   // Xử lý login
   const handleLogin = () => {

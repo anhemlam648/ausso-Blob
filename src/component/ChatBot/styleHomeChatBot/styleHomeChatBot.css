@@ -2,10 +2,10 @@
 .chatbot-container {
   margin-top: 50px;
   background: linear-gradient(to right, #ffffff, #00aaff);
-  min-height: 100vh;
+  min-height: 150vh;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   font-family: 'Roboto', sans-serif;
   position: fixed;
   top: 0;
@@ -25,8 +25,8 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
   margin-bottom: 10px;
-  max-width: 700px;  /* Giới hạn chiều rộng header */
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
+  max-width: 700px;
+  box-sizing: border-box;
 }
 
 /* Tab chuyển đổi */
@@ -41,7 +41,7 @@
 }
 
 .chat-tab.active {
-  background-color: #00aaff ; /* Màu xanh lá cho tab đang active */
+  background-color: #00aaff;
   color: white;
 }
 
@@ -50,13 +50,15 @@
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;  /* Căn trên cho các tin nhắn */
+  justify-content: space-between;  /* Căn dưới phần nhập liệu và giữ cho phần chat hiển thị */
   width: 100%;
-  max-width: 500px; /* Giới hạn chiều rộng khung chat */
+  max-width: 500px;
   padding: 10px;
   flex-grow: 1;
-  overflow-y:auto ;
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  position: relative;
 }
 
 /* Chat box */
@@ -67,78 +69,82 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%; /* Đảm bảo khung chat có chiều cao đầy đủ trong khung chat-wrapper */
-  max-height: 450px; /* Giới hạn chiều cao khung chat */
+  justify-content: flex-start;
+  height: 100%;
+  max-height: 450px;
   margin-bottom: 20px;
-  overflow: hidden; /* Giúp không bị tràn */
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
+  overflow: hidden;
+  box-sizing: border-box;
+  height: 100vh;
 }
 
 /* Chat history */
 .chat-history {
   display: flex;
-  flex-direction: column-reverse; /* Đảo ngược thứ tự các tin nhắn */
+  flex-direction: column-reverse;
   gap: 10px;
   padding-right: 10px;
-  max-height: 300px; /* Giới hạn chiều cao của lịch sử chat */
-  overflow-y: auto; /* Cho phép cuộn khi quá nhiều tin nhắn */
+  max-height: 300px;
+  overflow-y: auto;
   padding-left: 10px;
   padding-top: 10px;
-  width: 100%; /* Chiếm toàn bộ chiều rộng */
-  align-items: flex-start; /* Căn giữa tin nhắn */
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
+  width: 100%;
+  align-items: flex-start;
+  box-sizing: border-box;
 }
 
 /* Tin nhắn người dùng */
 .message-bubble.user {
-  background-color: #007bff; /* Màu xanh lam cho tin nhắn người dùng */
+  background-color: #007bff;
   color: white;
-  margin-top: 10px;  /* Thêm khoảng cách trên để tin nhắn không quá sát với tin nhắn trước */
-  margin-left: auto; /* Đẩy tin nhắn người dùng sang bên phải */
-  margin-right: 0;   /* Đảm bảo không có khoảng cách bên phải */
-  border-radius: 18px 18px 0 18px; /* Bo góc tin nhắn người dùng */
-  max-width: 70%; /* Giới hạn chiều rộng của tin nhắn */
-  padding: 10px; /* Thêm padding cho tin nhắn người dùng để dễ đọc */
-  word-wrap: break-word; /* Đảm bảo chữ không bị tràn */
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 0;
+  border-radius: 18px 18px 0 18px;
+  max-width: 75%;
+  padding: 12px 20px;
+  word-wrap: break-word;
   box-sizing: border-box;
-  margin-bottom: 10px; /* Đảm bảo padding và margin không gây tràn */
+  margin-bottom: 10px;
 }
 
 /* Tin nhắn bot */
 .message-bubble.bot {
-  background-color: #f0f0f0; /* Màu xám nhạt cho tin nhắn bot */
-  color: #333; /* Màu chữ tối cho bot */
-  margin-right: auto; /* Đẩy tin nhắn bot sang bên trái */
-  margin-left: 0;    /* Đảm bảo không có khoảng cách bên trái */
-  border-radius: 18px 18px 18px 0; /* Bo góc tin nhắn bot */
-  max-width: 70%; /* Giới hạn chiều rộng của tin nhắn */
-  padding: 10px; /* Thêm padding cho tin nhắn bot để dễ đọc */
-  word-wrap: break-word; /* Đảm bảo chữ không bị tràn */
-  box-sizing: border-box; /* Đảm bảo padding và margin không gây tràn */
+  background-color: #f0f0f0;
+  color: #333;
+  margin-right: auto;
+  margin-left: 0;
+  border-radius: 18px 18px 18px 0;
+  max-width: 75%;
+  padding: 12px 20px;
+  word-wrap: break-word;
+  box-sizing: border-box;
 }
 
 /* Thêm một chút hiệu ứng khi hover vào các tin nhắn */
 .message-bubble:hover {
-  opacity: 0.9; /* Làm mờ khi hover */
-  transform: scale(1.02); /* Phóng to một chút khi hover */
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out; /* Thêm hiệu ứng mượt */
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 /* Input area */
 .input-area {
-  margin-top: 150px;
   display: flex;
   align-items: center;
   padding: 10px;
   border-top: 1px solid #ccc;
   background-color: #fff;
-  position: relative; /* Đảm bảo luôn ở dưới cùng */
+  position: sticky;
+  top: 0; /* Đảm bảo phần nhập liệu luôn nằm ở dưới cùng */
+  bottom: -25px; /* Cố định phần nhập liệu ở dưới cùng */
   width: 100%; /* Đảm bảo chiều rộng */
-  justify-content: center; /* Căn giữa phần nhập liệu */
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
+  justify-content: center;
+  box-sizing: border-box;
+  background: white;
 }
 
+/* Input field */
 .input-field {
   flex: 1;
   padding: 12px;
@@ -146,10 +152,11 @@
   border-radius: 20px;
   margin-right: 10px;
   font-size: 14px;
-  width: 60%; /* Giảm chiều rộng input */
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
+  width: 60%;
+  box-sizing: border-box;
 }
 
+/* Nút gửi */
 .send-btn {
   width: 25%;
   background-color: #00aaff;
@@ -167,9 +174,10 @@
 }
 
 .send-btn:hover {
-  background-color: #00aaff;
+  background-color: #007acc;
 }
 
+/* Nút combie */
 .combie-btn {
   width: 25%;
   background-color: #00aaff;
@@ -188,32 +196,30 @@
 }
 
 .combie-btn:hover {
-  background-color: #00aaff;
+  background-color: #007acc;
 }
-
 
 /* Login prompt */
 .login-prompt {
   text-align: center;
   margin-top: 40px;
-  flex-grow: 1; /* Giúp căn giữa login button */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
-/* Căn chỉnh login button vào giữa */
 .login-btn {
-  padding: 10px;  /* Giảm padding để nút nhỏ hơn */
+  padding: 10px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
-  font-size: 14px; 
-  width: 35%; 
+  font-size: 14px;
+  width: 35%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -223,7 +229,7 @@
 }
 
 /* Animation for title */
-.Title1{
+.Title1 {
   width: 150%;
   margin-top: -150px;
   font-size: 36px;
@@ -246,22 +252,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-
-/* Fix input-area shifting issue */
-.chat-wrapper {
-  position: relative;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Không đẩy xuống dưới */
-  overflow: hidden; /* Giúp đảm bảo không bị tràn */
-}
-
-.chat-box {
-  flex-grow: 1;
-  overflow-y: auto;
-  margin-bottom: 50px; /* Đảm bảo input area không bị che khuất */
-  box-sizing: border-box; /* Đảm bảo không bị tràn */
 }

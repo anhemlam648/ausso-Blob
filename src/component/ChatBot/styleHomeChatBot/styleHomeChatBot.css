@@ -1,6 +1,6 @@
 /* Tổng thể container */
 .chatbot-container {
-  margin-top: 50px;
+  margin-top: 55px;
   background: linear-gradient(to right, #ffffff, #00aaff);
   min-height: 150vh;
   display: flex;
@@ -13,6 +13,7 @@
   right: 0;
   padding-top: 20px;
   box-sizing: border-box;
+  
 }
 
 /* Phần header với các tab */
@@ -27,6 +28,8 @@
   margin-bottom: 10px;
   max-width: 700px;
   box-sizing: border-box;
+  position: sticky;
+  top: 0;
 }
 
 /* Tab chuyển đổi */
@@ -45,37 +48,27 @@
   color: white;
 }
 
-/* Khung chat */
 .chat-wrapper {
-  margin-top: 50px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;  /* Căn dưới phần nhập liệu và giữ cho phần chat hiển thị */
   width: 100%;
-  max-width: 500px;
+  max-width: 600px; /* Adjust for a smaller chat window */
   padding: 10px;
-  flex-grow: 1;
-  height: 100vh;
-  overflow-y: auto;
   box-sizing: border-box;
-  position: relative;
+  height: calc(80vh - 100px); /* Leave space for the header and input area */
+  background-color: #ffffff; /* Optional: background color to distinguish it */
+  border-radius: 10px;
+  width: 50%;
 }
 
-/* Chat box */
 .chat-box {
-  background-color: #ffffff;
-  padding: 20px;
+  flex-grow: 1; /* Allow the chat box to take remaining space */
+  overflow-y: auto;
+  padding: 15px;
   border-radius: 10px;
+  background-color: #f9f9f9; /* Optional: background color */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-  max-height: 450px;
-  margin-bottom: 20px;
-  overflow: hidden;
-  box-sizing: border-box;
-  height: 100vh;
 }
 
 /* Chat history */
@@ -84,13 +77,12 @@
   flex-direction: column-reverse;
   gap: 10px;
   padding-right: 10px;
-  max-height: 300px;
-  overflow-y: auto;
   padding-left: 10px;
   padding-top: 10px;
   width: 100%;
-  align-items: flex-start;
   box-sizing: border-box;
+  overflow-y: auto;
+  flex-grow: 1; /* Allow chat history to expand */
 }
 
 /* Tin nhắn người dùng */
@@ -105,7 +97,7 @@
   padding: 12px 20px;
   word-wrap: break-word;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 /* Tin nhắn bot */
@@ -135,15 +127,14 @@
   padding: 10px;
   border-top: 1px solid #ccc;
   background-color: #fff;
-  position: sticky;
-  top: 0; /* Đảm bảo phần nhập liệu luôn nằm ở dưới cùng */
-  bottom: -25px; /* Cố định phần nhập liệu ở dưới cùng */
-  width: 100%; /* Đảm bảo chiều rộng */
+  position: fixed; /* Fix it at the bottom */
+  bottom: 90px;
+  margin-left: -25px;
+  width: 100%;
+  max-width: 600px; /* Align width with the chat wrapper */
   justify-content: center;
   box-sizing: border-box;
-  background: white;
-}
-
+} 
 /* Input field */
 .input-field {
   flex: 1;

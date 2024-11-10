@@ -189,14 +189,14 @@ function ChatBot() {
                       {/* <div className="message-bubble bot">
                         <strong>Bot:</strong> <span>{msg.bot}</span>
                       </div> */}
-                      <div className="message-bubble bot">
+                      {/* <div className="message-bubble bot">
                         <strong>Bot:</strong> <span>{msg.bot}</span>
                         {msg.file && (
                           <div>
                             <strong>File Attached:</strong> <span>{msg.file}</span>
                           </div>
                         )}
-                    </div>
+                    </div> */}
                     </div>
                   ))}
                 </div>

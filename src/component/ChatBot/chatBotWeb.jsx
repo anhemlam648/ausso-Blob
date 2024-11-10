@@ -51,63 +51,116 @@ function ChatBotWeb() {
   };
 
   // Xử lý gửi yêu cầu chat tới back-end
+  // const handleChatSubmit = async () => {
+  //   if (message.trim() === "") return;  // Don't send empty messages
+  //   setLoading(true);
+  
+  //   try {
+  //     // Check for file sending scenario
+  //     if (message.includes("send file")) {
+  //       const fileName = "example-file.txt"; // Dummy file name
+  //       await handleFetchSasUrl(fileName);   // Call to get the SAS URL
+  //       return;  // Exit here if handling a file
+  //     }
+  
+  //     // Prepare chat request
+  //     const chatRequest = {
+  //       history: history,
+  //       question: message,
+  //       file_name: sourceFile,  // If a file is included
+  //     };
+  
+  //     // Make the API request
+  //     const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       timeout: 25000,  // Timeout set to 20 seconds
+  //       maxRedirects: 5,
+  //     });
+  
+  //     // Extract the content from the response (based on your response structure)
+  //     if (response.data && response.data.content) {
+  //       const botResponse = response.data.content;  // Changed from 'message' to 'content'
+  
+  //       // Add the bot's response to the chat
+  //       const botResponseDiv = document.createElement('div');
+  //       botResponseDiv.className = 'bot';
+  //       botResponseDiv.innerHTML = 'Bot: ' + botResponse;
+  
+  //       // Append the response to the chat history
+  //       document.querySelector('.chat-history').appendChild(botResponseDiv);
+  
+  //       // Update history state
+  //       setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse }]);
+  
+  //     } else {
+  //       // Handle the case when the response format is unexpected
+  //       console.error("Invalid response format", response.data);
+  //       setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+  //     }
+  
+  //   } catch (error) {
+  //     // Handle any errors that occur during the API call
+  //     console.error("Error while submitting message:", error);
+  //     setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+  //   } finally {
+  //     // Reset loading state and clear input field
+  //     setLoading(false);
+  //     setMessage("");  
+  //   }
+  // };
   const handleChatSubmit = async () => {
-    if (message.trim() === "") return;
+    if (message.trim() === "") return;  // Don't send empty messages
     setLoading(true);
+  
     try {
+      // Check for file sending scenario
       if (message.includes("send file")) {
-        const fileName = "example-file.txt";  // Giả có một tên file nào đó
-        await handleFetchSasUrl(fileName);  // Gọi để lấy SAS URL cho file
+        const fileName = "example-file.txt"; // Dummy file name
+        await handleFetchSasUrl(fileName);   // Call to get the SAS URL
+        return;  // Exit here if handling a file
       }
-      
+  
+      // Prepare chat request
       const chatRequest = {
-        history: history,  
-        question: message,  
-        file_name: sourceFile,  
+        history: history,
+        question: message,
+        file_name: sourceFile,  // If a file is included
       };
-
+  
+      // Make the API request
       const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest, {
         headers: {
           'Content-Type': 'application/json',
         },
-        responseType: 'stream', 
+        timeout: 25000,  // Timeout set to 25 seconds
+        maxRedirects: 5,
       });
-
-      const reader = response.data.getReader();
-      const decoder = new TextDecoder();
-      let botResponse = '';
-
-      // Tạo phần tử div cho phản hồi của bot và thêm vào lịch sử trò chuyện
-      const botResponseDiv = document.createElement('div');
-      botResponseDiv.className = 'bot'; 
-      botResponseDiv.innerHTML = 'Bot: '; 
-      document.querySelector('.chat-history').appendChild(botResponseDiv);
-
-      // Đọc dữ liệu từng phần (chunk) từ stream
-      while (true) {
-        const { value, done } = await reader.read();  
-        if (done) break; 
-
-        const chunk = decoder.decode(value, { stream: true });  
-        botResponse += chunk;  
-
-        // Cập nhật UI với phần dữ liệu mới
-        botResponseDiv.innerHTML = 'Bot: ' + botResponse.replace(/\n/g, '<br>');
-        document.querySelector('.chat-history').scrollTop = document.querySelector('.chat-history').scrollHeight;  // Cuộn xuống dưới
+  
+      // Extract the content from the response (based on your response structure)
+      if (response.data && response.data.content) {
+        const botResponse = response.data.content;  // Changed from 'message' to 'content'
+  
+        // Add the bot's response to the chat
+        // handleCombieAndSummary();
+        setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse }]);
+      } else {
+        // Handle the case when the response format is unexpected
+        console.error("Invalid response format", response.data);
+        setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
       }
-
-      // Lưu lịch sử chat sau khi bot trả lời xong
-      setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse, file: sourceFile }]);
-      handleCombieAndSummary();
+  
     } catch (error) {
+      // Handle any errors that occur during the API call
       console.error("Error while submitting message:", error);
       setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
     } finally {
-      setLoading(false); 
+      // Reset loading state and clear input field
+      setLoading(false);
       setMessage("");  
     }
   };
-
   // Xử lý login
   const handleLogin = () => {
     window.location.href = "http://localhost:5010/api/v1/login";  
@@ -250,6 +303,7 @@ function ChatBotWeb() {
                   >
                     {loading ? 'Sending...' : 'Send Messenger'}
                   </button>
+                  
                   <button
                     className="combie-btn"
                     onClick={handleCombieAndSummary}
@@ -257,6 +311,7 @@ function ChatBotWeb() {
                   >
                     {loading ? 'Processing...' : 'Generate Summary'}
                   </button>
+                 
                 </div>
               </div>
             )}

@@ -54,17 +54,17 @@ function Uploadfile(){
         window.location.href = "http://localhost:5010/api/v1/login";
       };
     
-      // Xử lý logout
-      const handleLogout = async () => {
-        try {
-          await axios.post("http://localhost:5010/api/v1/logout", {}, { withCredentials: true });
-          setIsAuthenticated(false);
-          setUserInfo(null);
-          window.location.href = "http://localhost:5010/api/v1/login";
-        } catch (error) {
-          console.error("Logout failed", error);
-        }
-      };
+      // // Xử lý logout
+      // const handleLogout = async () => {
+      //   try {
+      //     await axios.post("http://localhost:5010/api/v1/logout", {}, { withCredentials: true });
+      //     setIsAuthenticated(false);
+      //     setUserInfo(null);
+      //     window.location.href = "http://localhost:5010/api/v1/login";
+      //   } catch (error) {
+      //     console.error("Logout failed", error);
+      //   }
+      // };
 
       const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -182,7 +182,7 @@ function Uploadfile(){
             )}
              
              {/* Đăng xuất */}
-            <button onClick={handleLogout} className="buttonLogout">Logout</button>
+            {/* <button onClick={handleLogout} className="buttonLogout">Logout</button> */}
              
             {/* Upload và Delete file trên Blob */}
             <div className="upload-section">

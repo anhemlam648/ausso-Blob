@@ -58,7 +58,17 @@ function AdminDashboard() {
 //       console.error("Logout failed", error);
 //     }
 //   };
-
+        const handleLogout = async () => {
+        try {
+          await axios.post("http://localhost:5010/api/v1/logout", {}, { withCredentials: true });
+          setIsAuthenticated(false);
+          setUserInfo(null);
+          window.location.href = "http://localhost:5010/api/v1/login";
+          // handleLogin(true);
+        } catch (error) {
+          console.error("Logout failed", error);
+        }
+      };
   return (
     <div className="home-container">
       <Header />
@@ -78,6 +88,7 @@ function AdminDashboard() {
             <>
             </>
           )}
+          <button onClick={handleLogout} className="buttonLogout">Logout</button> 
         </div>
       )}
       <Footer />

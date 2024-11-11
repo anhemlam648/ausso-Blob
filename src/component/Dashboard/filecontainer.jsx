@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"; // Import useParams để lấy co
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import './StyleDashboard/styleFile.css';
+import { useNavigate } from "react-router-dom";
 
 function FileContainer() {
   const { containerName } = useParams(); 
@@ -12,6 +13,7 @@ function FileContainer() {
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const [downloadUrls, setDownloadUrls] = useState([]);
   // Kiểm tra tính xác thực người dùng
+  const navigate = useNavigate();
   const checkAuth = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/check-auth", {
@@ -110,6 +112,9 @@ function FileContainer() {
     //     console.error("Download failed", error);
     //     }
     // };
+    const handleBackTo = () =>{
+        navigate(`/container`);
+    }
     const handleDownload = async () => {
         try {
           if (selectedFiles.length === 0) {
@@ -226,6 +231,7 @@ function FileContainer() {
             )}
           </div>
         )}
+        <button onClick={handleBackTo} className="btn-back">Back To</button>
       </div>
       <Footer />
     </div>

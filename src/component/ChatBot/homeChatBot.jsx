@@ -271,6 +271,13 @@ function ChatBot() {
                   >
                     {loading ? 'Processing...' : 'Generate Summary'}
                   </button>
+                  {/* <button
+                    className="loadData-btn"
+                    onClick={handleLoadData}
+                    disabled={loading || message.trim() === ""}
+                  >
+                    {loading ? 'Sending...' : 'Send Messenger'}
+                  </button> */}
                 </div>
               </div>
             )}

@@ -416,3 +416,16 @@ input[type="file"]:hover {
   text-decoration: underline;
 }
 
+.btn-back {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+.btn-back:hover {
+  background-color: #0056b3;
+}

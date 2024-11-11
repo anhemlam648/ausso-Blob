@@ -210,11 +210,10 @@ function ChatBotWeb() {
         timeout: 15000,  // Timeout set to 25 seconds
         maxRedirects: 5,
       });
-  
+    //  handleCombieAndSummary();
       // Extract the content from the response (based on your response structure)
       if (response.data && response.data.content) {
         const botResponse = response.data.content;
-  
         // Update chat history with bot response
         setHistory(prevHistory => [
           ...prevHistory.slice(0, -1),  // Remove the loading state
@@ -275,7 +274,9 @@ function ChatBotWeb() {
         headers: {
           'Content-Type': 'application/json',
         },
+        responseType: 'stream',
       });
+      
   
       // Xử lý dữ liệu trả về từ API, ví dụ:
       setHistory([...history, { user: message, bot: response.data }]);

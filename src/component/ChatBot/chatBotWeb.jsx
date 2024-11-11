@@ -110,55 +110,135 @@ function ChatBotWeb() {
   //     setMessage("");  
   //   }
   // };
+
+  // Xử lý chat
+  // const handleChatSubmit = async () => {
+  //   if (message.trim() === "") return;  // Don't send empty messages
+  //   setLoading(true);
+  
+  //   try {
+  //     // Check for file sending scenario
+  //     if (message.includes("send file")) {
+  //       const fileName = "example-file.txt"; // Dummy file name
+  //       await handleFetchSasUrl(fileName);   // Call to get the SAS URL
+  //       return;  // Exit here if handling a file
+  //     }
+  
+  //     // Prepare chat request
+  //     const chatRequest = {
+  //       history: history,
+  //       question: message,
+  //       file_name: sourceFile,  // If a file is included
+  //     };
+  
+  //     // Make the API request
+  //     const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       timeout: 25000,  // Timeout set to 25 seconds
+  //       maxRedirects: 5,
+  //     });
+  
+  //     // Extract the content from the response (based on your response structure)
+  //     if (response.data && response.data.content) {
+  //       const botResponse = response.data.content;  // Changed from 'message' to 'content'
+  
+  //       // Add the bot's response to the chat
+  //       // handleCombieAndSummary();
+  //       setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse }]);
+  //     } else {
+  //       // Handle the case when the response format is unexpected
+  //       console.error("Invalid response format", response.data);
+  //       setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+  //     }
+  
+  //   } catch (error) {
+  //     // Handle any errors that occur during the API call
+  //     console.error("Error while submitting message:", error);
+  //     setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+  //   } finally {
+  //     // Reset loading state and clear input field
+  //     setLoading(false);
+  //     setMessage("");  
+  //   }
+  // };
+
+  //xử lý chunk quá dài hơn 1000 kí tự
+  const chunkMessage = (message, chunkSize = 1000) => {
+    const chunks = [];
+    for (let i = 0; i < message.length; i += chunkSize) {
+      chunks.push(message.slice(i, i + chunkSize));
+    }
+    return chunks;
+  };
+
   const handleChatSubmit = async () => {
     if (message.trim() === "") return;  // Don't send empty messages
-    setLoading(true);
+    
+    // Immediately add the user's message to the chat history
+      // Add loading state
   
+    setLoading(true);
+    setMessage("");  // Clear input field
+    const userMessage = message;
     try {
+      const chunks = chunkMessage(message);
       // Check for file sending scenario
       if (message.includes("send file")) {
         const fileName = "example-file.txt"; // Dummy file name
         await handleFetchSasUrl(fileName);   // Call to get the SAS URL
         return;  // Exit here if handling a file
       }
-  
+    
       // Prepare chat request
+      for (const chunk of chunks) {
       const chatRequest = {
         history: history,
-        question: message,
+        // question: userMessage,
+        question: chunk,
         file_name: sourceFile,  // If a file is included
       };
+     
+      setHistory(prevHistory => [...prevHistory, { user: userMessage, bot: "..." }]);
   
       // Make the API request
       const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest, {
         headers: {
           'Content-Type': 'application/json',
         },
-        timeout: 25000,  // Timeout set to 25 seconds
+        timeout: 15000,  // Timeout set to 25 seconds
         maxRedirects: 5,
       });
   
       // Extract the content from the response (based on your response structure)
       if (response.data && response.data.content) {
-        const botResponse = response.data.content;  // Changed from 'message' to 'content'
+        const botResponse = response.data.content;
   
-        // Add the bot's response to the chat
-        // handleCombieAndSummary();
-        setHistory(prevHistory => [...prevHistory, { user: message, bot: botResponse }]);
+        // Update chat history with bot response
+        setHistory(prevHistory => [
+          ...prevHistory.slice(0, -1),  // Remove the loading state
+          { user: chunk, bot: botResponse }
+        ]);
       } else {
         // Handle the case when the response format is unexpected
         console.error("Invalid response format", response.data);
-        setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+        setHistory(prevHistory => [
+          ...prevHistory.slice(0, -1),  // Remove the loading state
+          { user: chunk, bot: "Sorry, something went wrong. Please try again." }
+        ]);
       }
+    }
   
     } catch (error) {
       // Handle any errors that occur during the API call
       console.error("Error while submitting message:", error);
-      setHistory(prevHistory => [...prevHistory, { user: message, bot: "Sorry, something went wrong. Please try again." }]);
+      setHistory(prevHistory => [
+        ...prevHistory.slice(0, -1),  // Remove the loading state
+        { user: userMessage, bot: "Sorry, something went wrong. Please try again." }
+      ]);
     } finally {
-      // Reset loading state and clear input field
       setLoading(false);
-      setMessage("");  
     }
   };
   // Xử lý login

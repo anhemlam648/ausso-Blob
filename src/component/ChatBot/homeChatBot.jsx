@@ -50,18 +50,29 @@ function ChatBot() {
     }
   };
 
+  // xử lý hơn 1000 kí tự
+  const chunkMessage = (message, chunkSize = 1000) => {
+    const chunks = [];
+    for (let i = 0; i < message.length; i += chunkSize) {
+      chunks.push(message.slice(i, i + chunkSize));
+    }
+    return chunks;
+  };
+
   // Gửi yêu cầu chat tới back-end
   const handleChatSubmit = async () => {
     if (message.trim() === "") return; 
     setLoading(true);
     try {
+      const chunk = chunkMessage(message)
       if (message.includes("send file")) {
         const fileName = "example-file.txt";  // Giả có một tên file nào đó
         await handleFetchSasUrl(fileName);  // Gọi để lấy SAS URL cho file
       }
       const chatRequest = {
         history: history,  
-        message: message,
+        // message: message,
+        question: chunk,
         file_name: sourceFile,  
       };
 
@@ -70,8 +81,29 @@ function ChatBot() {
           'Content-Type': 'application/json',
         },
       });
+ 
       // Lưu lịch sử chat
-      setHistory([...history, { user: message, bot: responses.data, file: sourceFile }]);
+      // setHistory([...history, { user: message, bot: responses.data, file: sourceFile }]);
+      setHistory(prevHistory => [
+        ...prevHistory.slice(0, -1),  // Remove the loading state
+        { user: chunk, bot: "Sorry, something went wrong. Please try again." }
+      ]);
+      if (responses.data && responses.data.content) {
+        const botResponse = responses.data.content;
+  
+        // Update chat history with bot response
+        setHistory(prevHistory => [
+          ...prevHistory.slice(0, -1),  // Remove the loading state
+          { user: chunk, bot: botResponse }
+        ]);
+      } else {
+        // Handle the case when the response format is unexpected
+        console.error("Invalid response format", responses.data);
+        setHistory(prevHistory => [
+          ...prevHistory.slice(0, -1),  // Remove the loading state
+          { user: chunk, bot: "Sorry, something went wrong. Please try again." }
+        ]);
+      }
       handleCombieAndSummary();
     } catch (error) {
       console.error("Error while submitting message:", error);

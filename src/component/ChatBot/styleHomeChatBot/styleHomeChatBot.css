@@ -134,6 +134,7 @@
   max-width: 600px; /* Align width with the chat wrapper */
   justify-content: center;
   box-sizing: border-box;
+  border-radius: 8px;
 } 
 /* Input field */
 .input-field {
@@ -224,13 +225,13 @@
   width: 150%;
   margin-top: -150px;
   font-size: 36px;
-  color: #fff;
+  color: blue;
   animation: fadeInUp 2s ease-out;
   font-weight: 600;
 }
 
 .Title1:hover {
-  color: blue;
+  color: white;
   transition: color 0.3s ease;
 }
 

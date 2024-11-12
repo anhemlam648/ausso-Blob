@@ -11,6 +11,7 @@ import FileContainer from './component/Dashboard/filecontainer';
 // import ChatBot from './component/ChatBot/homeChatBot';
 // import ChatBotWebTest from './component/ChatBot/chatBotWebTest';
 import ChatBotWeb from './component/ChatBot/chatBotWeb';
+import Chatbot from './component/ChatBot/chatBot';
 function App() {
 
 
@@ -18,7 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element = {<ChatBotWeb />}>ChatBotWeb</Route>
-      {/* <Route path='/' element={<ChatBot />}>ChatBot</Route>  */}
+      <Route path='/chatbot' element={<Chatbot />}>ChatBot</Route> 
       {/* <Route path='/chatbotweb' element={<ChatBotWebTest />}>ChatBotWeb</Route>  */}
         <Route path='/dashboard' element={<HomeAdmin />}>Home Admin</Route> 
         {/* <Route path='/' element={<Login />}>Home</Route>  */}

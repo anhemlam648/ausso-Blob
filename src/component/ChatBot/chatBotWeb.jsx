@@ -7,13 +7,14 @@ import FooterClient from '../FooterClient/FooterClient';
 import './styleHomeChatBot/styleChat.css';
 // import { useNavigate } from 'react-router-dom';
 
-const Chatbot = () => {
+const Chatbotweb = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
     const [message, setMessage] = useState('');
     const [history, setHistory] = useState([]);
     const [loading, setLoading] = useState(false);
-    // const [activeTab, setActiveTab] = useState('chatbot'); // Change Tab
+    const [activeTab, setActiveTab] = useState('chatweb'); // Change Tab
+    const [isTabOpen, setIsTabOpen] = useState(true); 
     // const navigate = useNavigate();
 
     useEffect(() => {
@@ -80,6 +81,14 @@ const Chatbot = () => {
         }
     };
 
+    const handleTabChange = (tab) => {
+        setActiveTab(tab); 
+      };
+
+    const toggleTab = () => {
+        setIsTabOpen(!isTabOpen); // Đảo ngược trạng thái của tab
+    };
+    
     return (
         <div className="Container-ChatBot">
             <HeaderClient />
@@ -108,6 +117,19 @@ const Chatbot = () => {
                                 </div>
                             ))}
                         </div> */}
+
+                         {/* Button để mở/đóng tab */}
+                        <button className="toggle-tab-btn" onClick={toggleTab}>
+                            {isTabOpen ? 'Close Tabs' : 'Open Tabs'}
+                        </button>
+
+                         {activeTab === 'chatbot' && (
+                            <div className="Chatbox__messages">
+                                <div className="message-bubble webchat">
+                                </div>
+                            </div>
+                        )}
+                        {activeTab === 'chatweb' && (
                         <div className="Chatbox__messages">
                                 {/* Example of chat history */}
                                 {history.map((msg, index) => (
@@ -134,10 +156,10 @@ const Chatbot = () => {
                                                 <img src={Imageman} className="user-avatar" alt="User Avatar" />
                                             </div>
                                         )}
-
                                     </div>
                                 ))}
                             </div>
+                        )}
                         <div className="Chatbox__footer">
                             <input
                                 type="text"
@@ -156,13 +178,30 @@ const Chatbot = () => {
                 ) : (
                     <div className="login-prompt">
                         <p className="Title1">Hello, Welcome Chat With Bot</p>
-                        <button className="login-btn" onClick={handleLogin}>Login with Microsoft</button>
+                        <button className="login-btn1" onClick={handleLogin}>Login with Microsoft</button>
                     </div>
+                    
                 )}
+                {/* Tab nằm ngoài Container-ChatBot */}
+                <div className={`tab-container ${isTabOpen ? 'visible' : 'hidden'}`}>
+                    <button 
+                    className={`tab-button ${activeTab === 'chatbot' ? 'active' : ''}`}
+                    onClick={() => handleTabChange('chatbot')}
+                    >
+                    Chatbot
+                    </button>
+                    <button 
+                    className={`tab-button ${activeTab === 'chatweb' ? 'active' : ''}`}
+                    onClick={() => handleTabChange('chatweb')}
+                    >
+                    Web Chat
+                    </button>
+                </div>
+
             </div>
             <FooterClient />
         </div>
     );
 };
 
-export default Chatbot;
+export default Chatbotweb;

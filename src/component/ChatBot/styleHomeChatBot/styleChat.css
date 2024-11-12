@@ -1,0 +1,295 @@
+/* General reset and styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: url("../../../assets/backgroundLogin.jpg");
+}
+
+/* Container */
+.Container-ChatBot {
+    margin-top: auto;
+    margin-left: 80px;
+    margin-right: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: background-color 0.2s ease;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Wrapper for the Chatbox */
+.Wrapper-ChatBot {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 15px 15px; 
+    margin-top: 60px; 
+    margin-bottom: 40px; 
+    flex-direction: column;
+}
+
+/* Chatbox */
+.Chatbox {
+    width: 100%;
+    max-width: 10000px;
+    background: #ffffff;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 500px; 
+    animation: fadeInChatbox ease 0.3s;
+}
+@keyframes fadeInChatbox {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.Chatbox {
+    animation: fadeInChatbox 0.8s ease-out forwards;
+}
+/* Header of Chatbox */
+.Chatbox__header {
+    background-color: #00aaff;
+    padding: 12px; 
+    color: white;
+    text-align: center;
+    font-size: 20px; 
+    font-weight: bold;
+    height: 60px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bounceHeader ease 0.3s;
+}
+
+@keyframes bounceHeader {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(-1px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.Chatbox__header {
+    animation: bounceHeader 1s ease-out;
+}
+
+
+/* Messages Area with scrollbar */
+.Chatbox__messages {
+    flex-grow: 1;
+    padding: 15px; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    overflow-y: auto; 
+    max-height: 400px; 
+}
+
+/* Container for each message (both bot and user) */
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px; 
+    margin-bottom: 10px; 
+    width: 100%;
+}
+
+/* Bot's message container: Align to the left */
+.message-container.bot {
+    justify-content: flex-start;
+}
+
+/* User's message container: Align to the right */
+.message-container.user {
+    justify-content: flex-end;
+}
+
+/* Container for the bot's icon */
+.message-container__icon.bot {
+    width: 45px;
+    margin-top: 85px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+/* Container for the user's avatar */
+.message-container__icon.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    margin-top: 5px;
+}
+
+.message-bubble.bot {
+    margin-top: 80px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 18px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 10px 15px; 
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 40px; /* Chiều cao tối thiểu */
+    line-height: 1.4;
+    margin-right: auto; /* Tin nhắn bot sẽ căn trái */
+    max-width: 60%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    flex-shrink: 0; 
+}
+
+/* User's message bubble */
+.message-bubble.user {
+    background-color: #007bff;
+    color: white;
+    width: auto;  
+    max-width: 60%; 
+    border-radius: 18px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    padding: 10px 15px;  
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 40px;
+    line-height: 1.4; 
+    margin-left: auto;
+    margin-right: 5px;
+    font-size: 15px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+
+/* User avatar styles */
+.user-avatar {
+    width: 28px; 
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 12px; 
+}
+
+/* Icon for bot */
+.bot-icon {
+    color: #9C1DE7;
+    margin-right: 8px; 
+}
+
+/* Icon for user */
+.user-icon {
+    color: #007bff;
+    margin-left: 12px; 
+}
+
+/* Footer (Input Area) */
+.Chatbox__footer {
+    padding: 12px 18px; 
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    height: 55px; 
+}
+
+/* Input Field */
+.chat-input {
+    width: 75%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px; 
+    font-size: 14px; 
+    height: 35px; 
+}
+
+/* Send Button */
+.chat-send-btn {
+    margin-left: 8px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    padding: 12px 18px; 
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px; 
+    transition: none;
+    text-align: center;
+}
+
+/* Remove the hover effect */
+.chat-send-btn:hover {
+    background-color: #00aaff;
+}
+
+.chat-send-btn svg {
+    margin-right: 8px;
+    font-size: 18px; 
+}
+
+.Title_ChatBot{
+    text-align: center;
+    font-size: 36px;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: slideUp 1s ease-out;
+}
+.Title_ChatBot:hover {
+    color: blue;
+    transition: color 0.3s ease;
+  }
+  
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.element {
+    animation: slideUp 0.6s ease-out forwards;
+}

@@ -8,7 +8,8 @@ import ListContainer from './component/Dashboard/container'
 // import Login from './component/Login/login'
 import SectionCard from './component/Dashboard/costSectionCard';
 import FileContainer from './component/Dashboard/filecontainer'; 
-import ChatBot from './component/ChatBot/homeChatBot';
+// import ChatBot from './component/ChatBot/homeChatBot';
+// import ChatBotWebTest from './component/ChatBot/chatBotWebTest';
 import ChatBotWeb from './component/ChatBot/chatBotWeb';
 function App() {
 
@@ -16,8 +17,9 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path='/' element={<ChatBot />}>ChatBot</Route> 
-      <Route path='/chatbotweb' element={<ChatBotWeb />}>ChatBotWeb</Route> 
+        <Route path='/' element = {<ChatBotWeb />}>ChatBotWeb</Route>
+      {/* <Route path='/' element={<ChatBot />}>ChatBot</Route>  */}
+      {/* <Route path='/chatbotweb' element={<ChatBotWebTest />}>ChatBotWeb</Route>  */}
         <Route path='/dashboard' element={<HomeAdmin />}>Home Admin</Route> 
         {/* <Route path='/' element={<Login />}>Home</Route>  */}
         <Route path='/uploadfile' element={<UploadFile />}>Upload File</Route> 

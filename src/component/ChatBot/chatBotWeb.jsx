@@ -5,7 +5,7 @@ import Imageman from '../../assets/bussiness-man.png';
 import HeaderClient from '../HeaderClient/HeaderClient';
 import FooterClient from '../FooterClient/FooterClient';
 import './styleHomeChatBot/styleChat.css';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Chatbotweb = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -15,7 +15,7 @@ const Chatbotweb = () => {
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState('chatweb'); // Change Tab
     const [isTabOpen, setIsTabOpen] = useState(true); 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         checkAuth();
@@ -117,7 +117,21 @@ const Chatbotweb = () => {
                                 </div>
                             ))}
                         </div> */}
-
+                        {/* Tab nằm ngoài Container-ChatBot */}
+                            <div className={`tab-container ${isTabOpen ? 'visible' : 'hidden'}`}>
+                                <button 
+                                className={`tab-button ${activeTab === 'chatbot' ? 'active' : ''}`}
+                                onClick={() => handleTabChange('chatbot')}
+                                >
+                                Chatbot
+                                </button>
+                                <button 
+                                className={`tab-button ${activeTab === 'chatweb' ? 'active' : ''}`}
+                                onClick={() => handleTabChange('chatweb')}
+                                >
+                                Web Chat
+                                </button>
+                            </div>
                          {/* Button để mở/đóng tab */}
                         <button className="toggle-tab-btn" onClick={toggleTab}>
                             {isTabOpen ? 'Close Tabs' : 'Open Tabs'}
@@ -126,6 +140,13 @@ const Chatbotweb = () => {
                          {activeTab === 'chatbot' && (
                             <div className="Chatbox__messages">
                                 <div className="message-bubble webchat">
+                                <p>Chat Web Content will be displayed here...</p>
+                                <button 
+                                className="navigate-btn"
+                                onClick={() => navigate('/chatbot')}
+                                >
+                                Go to Chat Bot
+                                </button>
                                 </div>
                             </div>
                         )}
@@ -160,6 +181,7 @@ const Chatbotweb = () => {
                                 ))}
                             </div>
                         )}
+                        {activeTab === 'chatweb' && (
                         <div className="Chatbox__footer">
                             <input
                                 type="text"
@@ -174,30 +196,14 @@ const Chatbotweb = () => {
                                 <FaPaperPlane style={{ fontSize: '15px', marginRight: '5px' }}/> Send
                             </button>
                         </div>
+                    )}
                     </div>
                 ) : (
                     <div className="login-prompt">
                         <p className="Title1">Hello, Welcome Chat With Bot</p>
                         <button className="login-btn1" onClick={handleLogin}>Login with Microsoft</button>
                     </div>
-                    
                 )}
-                {/* Tab nằm ngoài Container-ChatBot */}
-                <div className={`tab-container ${isTabOpen ? 'visible' : 'hidden'}`}>
-                    <button 
-                    className={`tab-button ${activeTab === 'chatbot' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('chatbot')}
-                    >
-                    Chatbot
-                    </button>
-                    <button 
-                    className={`tab-button ${activeTab === 'chatweb' ? 'active' : ''}`}
-                    onClick={() => handleTabChange('chatweb')}
-                    >
-                    Web Chat
-                    </button>
-                </div>
-
             </div>
             <FooterClient />
         </div>

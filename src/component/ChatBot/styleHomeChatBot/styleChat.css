@@ -350,14 +350,13 @@ body {
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease-in-out;
-    z-index: 5;
   }
   
 
   .tab-button {
     background-color: #f1f1f1;
     border: 1px solid #ddd;
-    padding: 10px 12px;
+    padding: 10px 12.5px;
     margin-bottom: 10px;
     cursor: pointer;
     font-size: 16px;
@@ -366,7 +365,6 @@ body {
     width: 100%;
     text-align: center;
     color: #333;
-    z-index: 0;
   }
   
 

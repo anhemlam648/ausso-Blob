@@ -49,9 +49,9 @@ function CostSectionCard(){
       };
     
     // Xử lý Login
-      const handleLogin = () => {
-        window.location.href = "http://localhost:5010/api/v1/login";
-      };
+      // const handleLogin = () => {
+      //   window.location.href = "http://localhost:5010/api/v1/login";
+      // };
     
     //   // Xử lý logout
     //   const handleLogout = async () => {
@@ -142,10 +142,10 @@ function CostSectionCard(){
           </div>
           <div className="content">
             <div className="App">
-              <h1 className="Title">Container Management Section</h1>
+              <h1 className="upload-title">Container Management Section</h1>
               {!isAuthenticated ? (
                 <div>
-                  <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
+                  {/* <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button> */}
                 </div>
               ) : (
                 <div>

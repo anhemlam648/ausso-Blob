@@ -43,9 +43,9 @@ function AdminDashboard() {
   };
 
   // Xử lý login
-  const handleLogin = () => {
-    window.location.href = "http://localhost:5010/api/v1/login";
-  };
+  // const handleLogin = () => {
+  //   window.location.href = "http://localhost:5010/api/v1/login";
+  // };
 
 //   // Xử lý logout
 //   const handleLogout = async () => {
@@ -77,13 +77,13 @@ function AdminDashboard() {
             <Sidebar />
           </div>
             <div className="content">
-              <h2 className="user-welcome">Hello, Welcome Admin</h2>
+              <h2 className="upload-title">Hello, Welcome Admin</h2>
               
               {!isAuthenticated ? (
                 <div>
-                  <button onClick={handleLogin} className="buttonLogin">
+                  {/* <button onClick={handleLogin} className="buttonLogin">
                     Login with Microsoft
-                  </button>
+                  </button> */}
                 </div>
               ) : (
                 <div>

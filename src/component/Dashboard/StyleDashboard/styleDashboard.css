@@ -94,25 +94,28 @@
     margin-bottom: 30px;
 }
 
+/* Card Styling */
 .card {
-    background-color: #fff;
+    background-color: #00aaff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px;
+    width: 250px; 
     text-align: center;
-}
-
-.card h3 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .card h3 {
     font-size: 18px;
     margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 24px;
+    color: white;
     font-weight: bold;
-    color: #00aaff;
-}
+  }
 
 /* Container List */
 .container-list {
@@ -239,4 +242,3 @@
     color: #2d3b4f;
   }
   
-

@@ -190,7 +190,6 @@ function FileContainer() {
         {!isAuthenticated ? (
           <div>
             <button onClick={() => window.location.href = "http://localhost:5010/api/v1/login"} className="buttonLogin1">
-              Login with Microsoft
             </button>
           </div>
         ) : (

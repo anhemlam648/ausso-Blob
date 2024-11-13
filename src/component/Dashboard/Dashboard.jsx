@@ -11,18 +11,13 @@ const Dashboard = () => {
                 <div className="sidebar">
                     <Sidebar/>
                 </div>
-                {/* <div className="content">
+                <div className="content">
                     <div className="cards-container">
                         <div className="card">
-                            <h3>Total Containers</h3>
-                            <p>12</p>
-                        </div>
-                        <div className="card">
-                            <h3>Active Blobs</h3>
-                            <p>48</p>
+                            <h3 style={{color:"#00aaff"}}>Welcome Admin</h3>
                         </div>
                     </div>
-                </div> */}
+                </div>
             </div>
             <FooterAdmin />
         </div>

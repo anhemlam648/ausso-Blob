@@ -57,9 +57,9 @@ function Container() {
   };
 
   // Xử lý đăng nhập
-  const handleLogin = () => {
-    window.location.href = "http://localhost:5010/api/v1/login";
-  };
+  // const handleLogin = () => {
+  //   window.location.href = "http://localhost:5010/api/v1/login";
+  // };
 
   const handleManageClick = (containerName) => {
     // Điều hướng đến trang hiển thị files của container
@@ -80,12 +80,12 @@ function Container() {
           </div>
         <div className="content">
       <div className="App">
-        <h1 className="Title">Container Management</h1>
+        <h1 className="upload-title">Container Management</h1>
         {!isAuthenticated ? (
           <div>
-            <button onClick={handleLogin} className="buttonLogin1">
+            {/* <button onClick={handleLogin} className="buttonLogin1">
               Login with Microsoft
-            </button>
+            </button> */}
           </div>
         ) : (
           <div>
@@ -102,7 +102,7 @@ function Container() {
                     </>
               )}
 
-              
+
             {/* List Container Blob */}
             <div className="container-list">
               {containers.length === 0 ? (

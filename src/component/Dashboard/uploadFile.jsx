@@ -53,9 +53,9 @@ function Uploadfile(){
       };
     
     // Xử lý Login
-      const handleLogin = () => {
-        window.location.href = "http://localhost:5010/api/v1/login";
-      };
+      // const handleLogin = () => {
+      //   window.location.href = "http://localhost:5010/api/v1/login";
+      // };
     
       // // Xử lý logout
       // const handleLogout = async () => {
@@ -222,7 +222,7 @@ function Uploadfile(){
               <h1 className="upload-title">Upload File</h1>
               {!isAuthenticated ? (
                 <div>
-                  <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
+                
                 </div>
               ) : (
                 <div>

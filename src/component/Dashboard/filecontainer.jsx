@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom"; // Import useParams để lấy containerName từ URL
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import HeaderAdmin from './HeaderAdmin/HeaderAdmin'
+import FooterAdmin from "./FooterAdmin/FooterAdmin";
+import Sidebar from "./Sidebar/SiderbarAdmin";
 import './StyleDashboard/styleFile.css';
 import { useNavigate } from "react-router-dom";
 
@@ -178,8 +179,13 @@ function FileContainer() {
 
   return (
     <div className="upload-container">
-      <Header />
-      <div className="App">
+      <HeaderAdmin />
+      <div className="main-container">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+        <div className="content"></div>
+      <div className="App1">
         <h1 className="Title">Files in {containerName}</h1>
         {!isAuthenticated ? (
           <div>
@@ -209,7 +215,8 @@ function FileContainer() {
                 <div className="file-actions">
                   <button onClick={handleDownload} className="btn-action">Download Link File Selected</button>
                   <button onClick={handleDelete} className="btn-action">Delete Selected</button>
-                  <div>
+                </div>
+                <div>
                     {downloadUrls.length > 0 && (
                         <div className="download-links">
                         <h3>Download Links</h3>
@@ -225,15 +232,14 @@ function FileContainer() {
                         </div>
                     )}
                     </div>
-                </div>
               </div>
-              
             )}
           </div>
         )}
         <button onClick={handleBackTo} className="btn-back">Back To</button>
       </div>
-      <Footer />
+      <FooterAdmin />
+    </div>
     </div>
   );
 }

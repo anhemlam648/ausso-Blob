@@ -222,7 +222,7 @@ function Uploadfile(){
               <h1 className="upload-title">Upload File</h1>
               {!isAuthenticated ? (
                 <div>
-                  <button onClick={handleLogin} className="buttonLogin">Login with Microsoft</button>
+                  <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
                 </div>
               ) : (
                 <div>
@@ -230,7 +230,7 @@ function Uploadfile(){
                     <p>Loading user data...</p>
                   ) : (
                     <>
-                      <h2 className="user-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2>
+                      <h2 className="admin-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "Admin"}!</h2>
                     </>
                   )}
                   <div className="upload-section">

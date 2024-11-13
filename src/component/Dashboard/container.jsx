@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import HeaderAdmin from './HeaderAdmin/HeaderAdmin'
+import FooterAdmin from "./FooterAdmin/FooterAdmin";
+import Sidebar from "./Sidebar/SiderbarAdmin";
 import './StyleDashboard/styleFile.css';
 import { useNavigate } from "react-router-dom"; 
 function Container() {
@@ -72,7 +73,12 @@ function Container() {
 
   return (
     <div className="upload-container">
-      <Header />
+      <HeaderAdmin />
+      <div className="main-container">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+        <div className="content">
       <div className="App">
         <h1 className="Title">Container Management</h1>
         {!isAuthenticated ? (
@@ -83,12 +89,20 @@ function Container() {
           </div>
         ) : (
           <div>
-            {!userInfo ? (
-              <p>Loading user data...</p>
-            ) : (
-              <h2 className="Title_User">Welcome</h2>
-            )}
+            {/* {!userInfo || userInfo?.name ||"Admin"}(
+            ) : {(
+              <h2 className="user-welcome">Welcome</h2>
+            )} */}
 
+              {!userInfo ? (
+                    <p>Loading user data...</p>
+                  ) : (
+                    <>
+                      <h2 className="admin-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "Admin"}!</h2>
+                    </>
+              )}
+
+              
             {/* List Container Blob */}
             <div className="container-list">
               {containers.length === 0 ? (
@@ -128,7 +142,9 @@ function Container() {
           </div>
         )}
       </div>
-      <Footer />
+      <FooterAdmin />
+    </div>
+    </div>
     </div>
   );
 }

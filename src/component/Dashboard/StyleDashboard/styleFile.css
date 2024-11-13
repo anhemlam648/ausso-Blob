@@ -103,21 +103,47 @@ input[type="file"] {
   color: red;
 } */
 
-.buttonLogin {
-  background-color: #0078d4;
+/* Button logi */
+.buttonLogin1, .buttonLogout {
+  background-color: #00aaff;
   color: white;
   padding: 12px 24px;
   text-align: center;
   cursor: pointer;
   border: none;
   border-radius: 4px;
+  font-size: 16px;
+  margin: 10px;
   transition: background-color 0.3s ease;
 }
 
-.buttonLogin:hover {
-  background-color: #005a9e;
+.buttonLogin1:hover, .buttonLogout:hover {
+  background-color: #00aaff;
 }
 
+.buttonLogin1 {
+  background-color: #00aaff;
+}
+
+.buttonLogin1:hover {
+  background-color: #00aaff;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Responsive Design: Stack content on small screens */
+@media (max-width: 768px) {
+  .content {
+    padding: 20px;
+  }
+
+  .buttonLogin, .buttonLogout {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
 /* Optional: Add some spacing and shadow for the overall page */
 .upload-container {
   padding: 20px;
@@ -130,6 +156,9 @@ input[type="file"] {
 
 /* Adjust for mobile */
 @media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
   .upload-buttons-container {
     flex-direction: column;
     align-items: center;
@@ -142,6 +171,11 @@ input[type="file"] {
 
   .buttonLogin {
     width: 100%;
+  }
+  .container-card {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
   }
 }
 
@@ -195,5 +229,163 @@ input[type="file"] {
       opacity: 1;
       transform: translateY(0);
   }
+}
+/* container */
+.container-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.container-card {
+  background: linear-gradient(to right, #00aaff, #0099cc); 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.container-card h4 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Container specific styles */
+.file-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* Align to the start vertically */
+  margin-top: 20px;
+  width: 100%;
+  padding: 0 15px;  /* Added padding for better spacing on smaller screens */
+}
+
+/* File actions container */
+.file-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%; /* Ensure the file actions are centered within the container */
+  max-width: 500px; /* Max width to keep the buttons from stretching too far */
+  margin-left: auto;
+  margin-right: auto; /* Center the action buttons */
+}
+
+/* Styling for buttons in the file-actions container */
+.file-actions button {
+  padding: 12px 24px;
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-size: 16px; /* Add font size for better readability */
+}
+
+/* Hover effect for buttons */
+.file-actions button:hover {
+  background-color: #0078d4;
+}
+
+/* Styling for file items */
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  margin: 10px 0;
+  width: 100%;
+  padding: 5px 0;
+  max-width: 600px; /* Keep file items from stretching too wide */
+  margin-left: auto;
+  margin-right: auto; /* Center the file items */
+}
+
+/* Styling for checkboxes inside file items */
+.file-item input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);  /* Slightly increase the size of the checkbox for better UX */
+}
+
+/* Download links section */
+.download-links {
+  margin-top: 20px;
+  text-align: center; /* Center the links */
+  width: 100%;
+}
+
+/* Unordered list for download links */
+.download-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: 600px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* List item styling for download links */
+.download-links li {
+  margin: 5px 0;
+}
+
+/* Styling for download link */
+.download-links a {
+  color: #00aaff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px; 
+}
+
+/* Hover effect for download links */
+.download-links a:hover {
+  text-decoration: underline;
+}
+
+/* Back button styling */
+.btn-back {
+  display: inline-block;
+  color: #fff;
+  background-color: #00aaff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btn-back:hover {
+  background-color: #0078d4;
+}
+
+/* App1 section positioning */
+.App1 {
+  margin-left: auto;
+  margin-right: 150px;
+  width: 100%;
+  max-width: 900px; 
+  padding: 0 15px; 
 }
 

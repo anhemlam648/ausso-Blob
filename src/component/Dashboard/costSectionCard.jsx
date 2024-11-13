@@ -153,7 +153,7 @@ function CostSectionCard(){
                     <p>Loading user data...</p>
                   ) : (
                     <>
-                      <h2 className="user-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2>
+                      <h2 className="admin-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "Admin"}!</h2>
                     </>
                   )}
   

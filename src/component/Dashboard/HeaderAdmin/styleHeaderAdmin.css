@@ -13,7 +13,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 9999; /* Đảm bảo header luôn trên cùng */
+    z-index: 9999; 
     height: 80px;
 }
 
@@ -37,7 +37,7 @@
 
 .user-info span {
     font-size: 16px;
-    font-weight: 500; /* Đậm hơn một chút cho phần tên người dùng */
+    font-weight: 500; 
     margin-right: 10px;
 }
 
@@ -56,14 +56,46 @@
 
 .logout-btn:hover {
     background-color: #c0392b;
-    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+    transform: scale(1.05); 
 }
 
 .logout-btn:focus {
-    outline: none; /* Loại bỏ outline khi nhấn */
+    outline: none; 
 }
 
 .logout-btn svg {
     margin-right: 8px;
     font-size: 16px;
+}
+
+.buttonLogin {
+    font-size: 16px;
+    padding: 12px 30px; 
+    border-radius: 12px;
+    border: 2px solid #00aaff;
+    background-color: #00aaff;
+    color: white;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 200px; 
+    white-space: nowrap; 
+}
+/* Hover effect */
+.buttonLogin:hover {
+  background-color: #0078d4; 
+  border-color: #0078d4; 
+  color: white; 
+}
+
+/* Focus state for accessibility */
+.buttonLogin:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.8); 
 }

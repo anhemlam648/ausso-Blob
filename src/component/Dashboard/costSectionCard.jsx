@@ -1,9 +1,10 @@
 // import { useState } from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import HeaderAdmin from './HeaderAdmin/HeaderAdmin'
+import FooterAdmin from "./FooterAdmin/FooterAdmin";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './StyleDashboard/styleFile.css'
+import Sidebar from './Sidebar/SiderbarAdmin';
 function CostSectionCard(){
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
@@ -78,51 +79,106 @@ function CostSectionCard(){
         checkAuth();
         fetchAzureCost();
       }, []);
-      return (
-        <div className="upload-container">
-        <Header />
-        <div className="App">
-        <h1 className="Title">Container Management Section</h1>
-          {!isAuthenticated ? (
-            <div>
-              <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
-            </div>
-          ) : (
-            <div>
-            {!userInfo ? (
-              <p>Loading user data...</p>
-            ) : (
-              <>
-              <h2 className="Title_User">Welcome</h2>
-                {/* <h2>Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
-                {/* <p>User Info: {JSON.stringify(userInfo)}</p> */}
-              </>
-            )}
+    //   return (
+    //     <div className="upload-container">
+    //     <HeaderAdmin />
+    //     <div className="main-container">
+    //       <div className="sidebar">
+    //         <Sidebar />
+    //       </div>
+    //         <div className="content">
+    //     <div className="App">
+    //     <h1 className="Title">Container Management Section</h1>
+    //       {!isAuthenticated ? (
+    //         <div>
+    //           <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
+    //         </div>
+    //       ) : (
+    //         <div>
+    //         {!userInfo ? (
+    //           <p>Loading user data...</p>
+    //         ) : (
+    //           <>
+    //           <h2 className="Title_User">Welcome</h2>
+    //             {/* <h2>Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
+    //             {/* <p>User Info: {JSON.stringify(userInfo)}</p> */}
+    //           </>
+    //         )}
              
-             {/* Đăng xuất
-            <button onClick={handleLogout} className="buttonLogout">Logout</button>
-            */}
+    //          {/* Đăng xuất
+    //         <button onClick={handleLogout} className="buttonLogout">Logout</button>
+    //         */}
 
-             {/* Hiển thị dữ liệu chi phí từ Azure */}
-             <div className="azure-cost-section card">
-              <div className="card-header">
-                <h3 className="Title">Azure Cost Data</h3>
-              </div>
-              <div className="card-body">
-                {azureCostData ? (
-                  <div className="cost-data-content">
-                    <pre className="cost-data-pre">{JSON.stringify(azureCostData, null, 2)}</pre>
-                  </div>
-                ) : (
-                  <p>Loading Azure cost data...</p>
-                )}
-              </div>
-            </div> 
+    //          {/* Hiển thị dữ liệu chi phí từ Azure */}
+    //          <div className="azure-cost-section card">
+    //           <div className="card-header">
+    //             <h3 className="Title">Azure Cost Data</h3>
+    //           </div>
+    //           <div className="card-body">
+    //             {azureCostData ? (
+    //               <div className="cost-data-content">
+    //                 <pre className="cost-data-pre">{JSON.stringify(azureCostData, null, 2)}</pre>
+    //               </div>
+    //             ) : (
+    //               <p>Loading Azure cost data...</p>
+    //             )}
+    //           </div>
+    //         </div> 
+    //       </div>
+    //       )}
+    //     </div>
+    //     <FooterAdmin />
+    //     </div>
+    //     </div>
+    //     </div>
+    //   );
+    // }
+    return (
+      <div className="upload-container">
+        <HeaderAdmin />
+        <div className="main-container">
+          <div className="sidebar">
+            <Sidebar />
           </div>
-          )}
+          <div className="content">
+            <div className="App">
+              <h1 className="Title">Container Management Section</h1>
+              {!isAuthenticated ? (
+                <div>
+                  <button onClick={handleLogin} className="buttonLogin1">Login with Microsoft</button>
+                </div>
+              ) : (
+                <div>
+                  {!userInfo ? (
+                    <p>Loading user data...</p>
+                  ) : (
+                    <>
+                      <h2 className="user-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2>
+                    </>
+                  )}
+  
+                  {/* Hiển thị dữ liệu chi phí từ Azure */}
+                  <div className="azure-cost-section card">
+                    <div className="card-header">
+                      <h3 className="Title">Azure Cost Data</h3>
+                    </div>
+                    <div className="card-body">
+                      {azureCostData ? (
+                        <div className="cost-data-content">
+                          <pre className="cost-data-pre">{JSON.stringify(azureCostData, null, 2)}</pre>
+                        </div>
+                      ) : (
+                        <p>Loading Azure cost data...</p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <Footer />
-        </div>
-      );
-    }
+        <FooterAdmin />
+      </div>
+    );
+  }
 export default CostSectionCard;

@@ -1,0 +1,52 @@
+/* Footer Styling */
+.footer {
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    background: linear-gradient(to right, #00aaff, #0099cc); 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.2s ease;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: 50px;
+}
+
+.footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.footer p {
+    margin-top: 15px;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-right: auto;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+}
+
+.footer .footer-right {
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer .footer-right span {
+    margin-right: 10px;
+}
+
+
+

@@ -1,9 +1,12 @@
 // import { useState } from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+// import Header from "../Header/Header";
+// import Footer from "../Footer/Footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import './StyleDashboard/styleFile.css'
+import HeaderAdmin from './HeaderAdmin/HeaderAdmin'
+import FooterAdmin from "./FooterAdmin/FooterAdmin";
+import Sidebar from "./Sidebar/SiderbarAdmin";
 function Uploadfile(){
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userInfo, setUserInfo] = useState(null);
@@ -160,49 +163,96 @@ function Uploadfile(){
         checkAuth();
         // fetchAzureCost();
       }, []);
-      return (
-        <div className="upload-container">
-        <Header />
-        <div className="App">
-          <h1 className="Title">Upload File</h1>
-          {!isAuthenticated ? (
-            <div>
-              <button onClick={handleLogin} className="buttonLogin1 ">Login with Microsoft</button>
-            </div>
-          ) : (
-            <div>
-            {!userInfo ? (
-              <p>Loading user data...</p>
-            ) : (
-              <>
-            <h2 className="Title_User">Welcome</h2>
-                {/* <h2>Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
-                {/* <p>User Info: {JSON.stringify(userInfo)}</p> */}
-              </>
-            )}
+    //   return (
+    //     <div className="upload-container">
+    //       <HeaderAdmin />
+    //       <div className="main-container">
+    //     <div className="App">
+    //       <h1 className="Title">Upload File</h1>
+    //       {!isAuthenticated ? (
+    //         <div>
+    //           <button onClick={handleLogin} className="buttonLogin1 ">Login with Microsoft</button>
+    //         </div>
+    //       ) : (
+    //         <div>
+    //         {!userInfo ? (
+    //           <p>Loading user data...</p>
+    //         ) : (
+    //           <>
+    //         <h2 className="Title_User">Welcome</h2>
+    //             {/* <h2>Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2> */}
+    //             {/* <p>User Info: {JSON.stringify(userInfo)}</p> */}
+    //           </>
+    //         )}
              
-             {/* Đăng xuất */}
-            {/* <button onClick={handleLogout} className="buttonLogout">Logout</button> */}
+    //          {/* Đăng xuất */}
+    //         {/* <button onClick={handleLogout} className="buttonLogout">Logout</button> */}
              
-            {/* Upload và Delete file trên Blob */}
-            <div className="upload-section">
-              <input type="file" onChange={handleFileChange} />
-              <div className="upload-buttons-container">
-              <button onClick={handleFileUpload} className="upload-button">Upload</button>
-              <button onClick={handleDeleteUpload} className="delete-button">Delete File</button>
-              {/* {uploadStatus && <p>{uploadStatus}</p>} */}
-              {uploadStatus && (
-                  <p className={`upload-status ${uploadStatus.toLowerCase().replace(' ', '-')}`}>
-                      {uploadStatus}
-                  </p>
+    //         {/* Upload và Delete file trên Blob */}
+    //         <div className="upload-section">
+    //           <input type="file" onChange={handleFileChange} />
+    //           <div className="upload-buttons-container">
+    //           <button onClick={handleFileUpload} className="upload-button">Upload</button>
+    //           <button onClick={handleDeleteUpload} className="delete-button">Delete File</button>
+    //           {/* {uploadStatus && <p>{uploadStatus}</p>} */}
+    //           {uploadStatus && (
+    //               <p className={`upload-status ${uploadStatus.toLowerCase().replace(' ', '-')}`}>
+    //                   {uploadStatus}
+    //               </p>
+    //           )}
+    //           </div>
+    //         </div>
+    //       </div>
+    //       )}
+    //     </div>
+    //     <FooterAdmin />
+    //     </div>
+    //     </div>
+    //   );
+    // }
+    return (
+      <div className="upload-container">
+        <HeaderAdmin />
+        <div className="main-container">
+          <div className="sidebar">
+            <Sidebar />
+          </div>
+          <div className="content">
+            <div className="upload-form-container">
+              <h1 className="upload-title">Upload File</h1>
+              {!isAuthenticated ? (
+                <div>
+                  <button onClick={handleLogin} className="buttonLogin">Login with Microsoft</button>
+                </div>
+              ) : (
+                <div>
+                  {!userInfo ? (
+                    <p>Loading user data...</p>
+                  ) : (
+                    <>
+                      <h2 className="user-welcome">Welcome, {userInfo.name || userInfo.preferred_username || "User"}!</h2>
+                    </>
+                  )}
+                  <div className="upload-section">
+                    <input type="file" onChange={handleFileChange} />
+                    <div className="upload-buttons-container">
+                      <button onClick={handleFileUpload} className="upload-button">Upload</button>
+                      <button onClick={handleDeleteUpload} className="delete-button">Delete File</button>
+                      {/* {uploadStatus && <p>{uploadStatus}</p>} */}
+                    </div>
+                  </div>
+                  {uploadStatus && (
+                        <p className={`upload-status ${uploadStatus.toLowerCase().replace(' ', '-')}`}>
+                          {uploadStatus}
+                        </p>
+                      )}
+                </div>
               )}
-              </div>
             </div>
           </div>
-          )}
         </div>
-        <Footer />
-        </div>
-      );
-    }
+        <FooterAdmin />
+      </div>
+    );
+  }
 export default Uploadfile;

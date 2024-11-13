@@ -239,7 +239,8 @@ body {
 
 /* Send Button */
 .chat-send-btn {
-    margin-left: 8px; 
+    margin-right: 10px;
+    margin-left: 5px; 
     display: flex;
     align-items: center;
     justify-content: center;

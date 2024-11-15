@@ -39,4 +39,4 @@ Before running the project locally, make sure you have:
 
 - **Run the Development Server**
 
-![Alt-Company](../../frontend-sso/react-sso/src/assets/Image_Company.jpg)
+![Alt-Company](./src/assets/Image_Company.jpg)

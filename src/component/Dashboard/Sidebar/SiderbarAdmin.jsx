@@ -8,6 +8,7 @@ const Sidebar = () => {
                 <li><Link to="/uploadfile">Upload File</Link></li>
                 <li><Link to="/sectioncard">Azure Cost</Link></li>
                 <li><Link to="/container">Container</Link></li>
+                <li><Link to="/">Back To</Link></li>
             </ul>
         </div>
     );

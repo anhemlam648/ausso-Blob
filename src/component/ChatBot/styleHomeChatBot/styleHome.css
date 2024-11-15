@@ -1,0 +1,401 @@
+/* Hero Section */
+.home-container {
+    background: linear-gradient(to right, #007bff, #00d4ff);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 10%;
+    height: 100vh;
+    margin-top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    position: fixed;
+    overflow-y: auto;
+    
+  }
+  .content{
+    border-radius: 10px;
+    padding: 50px 0;
+  }
+  .home .content h2 {
+    font-size: 3.5rem;
+    color: #00aaff;
+    font-weight: 800;
+    text-align: center;
+  }
+  
+  .home .content h2 span {
+    color: #ffae00;  /* Bright color to highlight the chatbot */
+  }
+  
+  .home .content p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: #00aaff;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .home .btn {
+    padding: 1rem 2rem;
+    background: #ffae00;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .home .btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* Image for chatbot */
+  .home .image img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  /* About Section (Chatbot Introduction) */
+  .about {
+    margin-top: 15px;
+    background-color: #f7f7f7;
+    text-align: center;
+    border-radius: 10px;
+    padding: 50px 0;
+  }
+  
+  .about .heading {
+    font-size: 3rem;
+    color: #000;
+  }
+  
+  .about .heading span {
+    color: #ffae00;  /* Highlight chatbot name */
+  }
+
+  .about p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: #00aaff;
+    margin-top: 2rem;
+  }
+  
+  .about .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .about .button-group .btn {
+    padding: 1rem 2.5rem;
+    background: #ffae00;
+    color: #fff;
+    border: none;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .about .button-group .btn:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .about-company {
+    margin-top: 15px;
+    padding: 50px 0;
+    background-color: #f5f5f5;
+  }
+  
+  .about-company .heading {
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .about-company .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .about-company .image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-company .content {
+    max-width: 600px;
+  }
+  
+  .about-company .content h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .about-company .content .tag {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .about-company .content p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .about-company .box-container {
+    margin-top: 30px;
+  }
+  
+  .about-company .box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-company .box p {
+    font-size: 1.1rem;
+  }
+  
+  .about-company .button-group {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .about-company .button-group .btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .about-company .button-group .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Image for company */
+  .home .image-company img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 3rem;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+/* About Company Section */
+.about-company {
+  padding: 60px 10%;
+  background: linear-gradient(to right, #f7f7f7, #e0f7fa);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.about-company .content-company .title-company {
+    color: #00aaff; /* Apply the blue color */
+    font-size: 20px; /* Adjust font size if needed */
+    font-weight: bold; /* Optional: make the title bold */
+    text-transform: uppercase; /* Optional: makes the text uppercase */
+    letter-spacing: 1px; /* Optional: adds space between letters */
+    margin-bottom: 15px; /* Optional: adds space below the title */
+  }
+.about-company .heading {
+  font-size: 2.8rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.about-company .heading span {
+  color: #ffae00; 
+}
+
+.about-company .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-company .image {
+  width: 30%;
+  text-align: center;
+}
+
+.about-company .image img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-company .image img:hover {
+  transform: scale(1.1);
+}
+
+.about-company .content-company {
+  max-width: 600px;
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+}
+
+.about-company .content-company .Title-CMCTS {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.about-company .content-company .tag {
+  font-size: 1.4rem;
+  color: #ffae00;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.about-company .content-company p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #00aaff;
+  margin-bottom: 25px;
+}
+
+.about-company .box-container {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+
+.about-company .box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 65%;
+}
+
+.about-company .box p {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.about-company .button-group {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.about-company .button-group .btn {
+  padding: 15px 30px;
+  background-color: #ffae00;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.about-company .button-group .btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .about-company .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-company .image {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .about-company .content {
+    width: 80%;
+  }
+
+  .about-company .button-group .btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+
+  .about-company .box-container {
+    flex-direction: column;
+  }
+
+  .about-company .box {
+    width: 100%;
+  }
+}
+
+/* .about-company.content-company{
+    border-radius: 10px;
+    padding: 50px 0;
+} */
+/* Define the keyframes for a smoother animation */
+/* @keyframes bounceAndColorChange {
+    0% {
+      transform: translateY(0); 
+      color: #ffae00;
+    }
+    25% {
+      transform: translateY(10px); 
+      color: #00aaff;
+    }
+    50% {
+      transform: translateY(0); 
+      color: #ffae00;
+    }
+    75% {
+      transform: translateY(-5px); 
+      color: #00aaff;
+    }
+    100% {
+      transform: translateY(0); 
+      color: #ffae00;
+    }
+  }
+  
+  .tag {
+    font-size: 15px;
+    animation: bounceAndColorChange 1.5s ease-in-out infinite;
+    font-weight: bold;
+    letter-spacing: 1px;
+  } */
+
+
+  .about .heading i {
+    font-size: 3.5rem;
+    color: #00aaff;
+    font-weight: 800;
+    text-align: center;
+  }
+  
+  .about .heading span {
+    color: #ffae00; 
+  }

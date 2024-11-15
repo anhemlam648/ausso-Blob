@@ -48,9 +48,9 @@ const Chatbotweb = () => {
         }
     };
 
-    const handleLogin = () => {
-        window.location.href = 'http://localhost:5010/api/v1/login'; 
-    };
+    // const handleLogin = () => {
+    //     window.location.href = 'http://localhost:5010/api/v1/login'; 
+    // };
 
     const handleChatSubmit = async () => {
         if (message.trim() === "") return;
@@ -118,20 +118,20 @@ const Chatbotweb = () => {
                             ))}
                         </div> */}
                         {/* Tab nằm ngoài Container-ChatBot */}
-                            <div className={`tab-container ${isTabOpen ? 'visible' : 'hidden'}`}>
-                                <button 
-                                className={`tab-button ${activeTab === 'chatbot' ? 'active' : ''}`}
-                                onClick={() => handleTabChange('chatbot')}
-                                >
-                                Chatbot
-                                </button>
-                                <button 
-                                className={`tab-button ${activeTab === 'chatweb' ? 'active' : ''}`}
-                                onClick={() => handleTabChange('chatweb')}
-                                >
-                                Web Chat
-                                </button>
-                            </div>
+                        <div className={`tab-container ${isTabOpen ? 'visible' : 'hidden'}`}>
+                            <button 
+                            className={`tab-button ${activeTab === 'chatbot' ? 'active' : ''}`}
+                            onClick={() => handleTabChange('chatbot')}
+                            >
+                            Chatbot
+                            </button>
+                            <button 
+                            className={`tab-button ${activeTab === 'chatweb' ? 'active' : ''}`}
+                            onClick={() => handleTabChange('chatweb')}
+                            >
+                            Web Chat
+                            </button>
+                        </div>
                          {/* Button để mở/đóng tab */}
                         <button className="toggle-tab-btn" onClick={toggleTab}>
                             {isTabOpen ? 'Close Tabs' : 'Open Tabs'}
@@ -199,9 +199,11 @@ const Chatbotweb = () => {
                     )}
                     </div>
                 ) : (
-                    <div className="login-prompt">
-                        <p className="Title1">Hello, Welcome Chat With Bot</p>
-                        <button className="login-btn1" onClick={handleLogin}>Login with Microsoft</button>
+                    // <div className="login-prompt">
+                    //     <p className="Title1">Hello, Welcome Chat With Bot</p>
+                    //     <button className="login-btn1" onClick={handleLogin}>Login with Microsoft</button>
+                    // </div>
+                    <div>
                     </div>
                 )}
             </div>

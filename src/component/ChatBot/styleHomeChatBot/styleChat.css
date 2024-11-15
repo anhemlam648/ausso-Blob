@@ -105,10 +105,11 @@ body {
     flex-grow: 1;
     padding: 15px; 
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* nội dung bắt đầu từ phía dưới */
     gap: 10px; 
     overflow-y: auto; 
     max-height: 400px; 
+    display: block;
 }
 
 /* Container for each message (both bot and user) */
@@ -133,7 +134,7 @@ body {
 /* Container for the bot's icon */
 .message-container__icon.bot {
     width: 45px;
-    margin-top: 85px; 
+    margin-top: 100px; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -150,7 +151,7 @@ body {
 }
 
 .message-bubble.bot {
-    margin-top: 80px;
+    margin-top: 100px;
     background-color: #f0f0f0;
     color: #333;
     border-radius: 18px;
@@ -159,8 +160,9 @@ body {
     padding: 10px 15px; 
     box-sizing: border-box;
     display: flex;
+    position: flex ;
     align-items: flex-start;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     min-height: 40px; /* Chiều cao tối thiểu */
     line-height: 1.4;
     margin-right: auto; /* Tin nhắn bot sẽ căn trái */
@@ -183,11 +185,11 @@ body {
     padding: 10px 15px;  
     box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-height: 40px;
+    align-items: flex-end;
+    /* justify-content: flex-end; */
+    min-height: 15px;
     line-height: 1.4; 
-    margin-left: auto;
+    margin-left: -1000px;
     margin-right: 5px;
     font-size: 15px;
     text-align: left;

@@ -16,15 +16,17 @@ import Dashboard from './component/Dashboard/Dashboard';
 // import HeaderAdmin from './component/Dashboard/HeaderAdmin/HeaderAdmin';
 // import FooterAdmin from './component/Dashboard/FooterAdmin/FooterAdmin';
 import HomeAdmin from './component/Dashboard/homeAdmin'
+import Home from './component/ChatBot/Home';
 function App() {
 
 
   return (
     <Router>
       <Routes>
-        <Route path='/' element = {<ChatBotWeb />}>ChatBotWeb</Route>
-      <Route path='/chatbot' element={<Chatbot />}>ChatBot</Route> 
-      {/* <Route path='/chatbotweb' element={<ChatBotWebTest />}>ChatBotWeb</Route>  */}
+        <Route path='/' element = {<Home />}>Introduction</Route> 
+        <Route path='/chatbotweb' element = {<ChatBotWeb />}>ChatBotWeb</Route>
+        <Route path='/chatbot' element={<Chatbot />}>ChatBot</Route> 
+        {/* <Route path='/chatbotweb' element={<ChatBotWebTest />}>ChatBotWeb</Route>  */}
         {/* <Route path='/dashboard' element={<HomeAdmin />}>Home Admin</Route>  */}
         <Route path='/dashboard' element={<Dashboard />}>Home Admin</Route>
         {/* <Route path='/header' element={<HeaderAdmin/>}>HeaderAdmin</Route>

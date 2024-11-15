@@ -81,3 +81,17 @@
     border: 8px;
   }
   
+  .buttonLogout {
+    position: absolute;
+    right: 10px; 
+    top: 10px; 
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* .buttonLogout:hover {
+    background-color:;
+  } */

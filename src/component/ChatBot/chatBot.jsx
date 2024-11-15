@@ -48,9 +48,9 @@ const Chatbot = () => {
         }
     };
 
-    const handleLogin = () => {
-        window.location.href = 'http://localhost:5010/api/v1/login'; 
-    };
+    // const handleLogin = () => {
+    //     window.location.href = 'http://localhost:5010/api/v1/login'; 
+    // };
 
     const handleChatSubmit = async () => {
         if (message.trim() === "") return;
@@ -197,10 +197,11 @@ const Chatbot = () => {
                          )}
                     </div>
                 ) : (
-                    <div className="login-prompt">
-                        <p className="Title1">Hello, Welcome Chat With Bot</p>
-                        <button className="login-btn1" onClick={handleLogin}>Login with Microsoft</button>
-                    </div>
+                    // <div className="login-prompt">
+                    //     <p className="Title1">Hello, Welcome Chat With Bot</p>
+                    //     <button className="login-btn1" onClick={handleLogin}>Login with Microsoft</button>
+                    // </div>
+                    <div></div>
                 )}
             </div>
             <FooterClient />

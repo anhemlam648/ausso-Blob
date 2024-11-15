@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function FileContainer() {
   const { containerName } = useParams(); 
   const [files, setFiles] = useState([]); 
-  const [selectedFiles, setSelectedFiles] = useState([]);  // State để lưu các file đã chọn
+  const [selectedFiles, setSelectedFiles] = useState([]);  
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const [downloadUrls, setDownloadUrls] = useState([]);
   // Kiểm tra tính xác thực người dùng

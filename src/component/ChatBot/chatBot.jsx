@@ -140,9 +140,9 @@ const Chatbot = () => {
                                 <p>Chat Web Content will be displayed here...</p>
                                     <button 
                                     className="navigate-btn"
-                                    onClick={() => navigate('/')}
+                                    onClick={() => navigate('/chatbotweb')}
                                     >
-                                    Go to Chat Bot
+                                    Go to Chat Web
                                     </button>
                                 </div>
                             </div>

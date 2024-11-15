@@ -2,10 +2,10 @@
 .footer {
     color: white;
     text-align: center;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
     background: linear-gradient(to right, #00aaff, #0099cc); 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
     font-family: 'Roboto', sans-serif;
     transition: background-color 0.2s ease;
     position: fixed;
@@ -13,7 +13,7 @@
     left: 0;
     right: 0;
     z-index: 1;
-    height: 50px;
+    height: 3.125rem;
 }
 
 .footer .footer-content {
@@ -21,23 +21,23 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px; 
+    max-width: 75rem; 
     margin: 0 auto; 
 }
 
 .footer p {
-    margin-top: 15px;
+    margin-top: 0.9375rem;
     margin-bottom: auto;
     margin-right: auto;
     margin-right: auto;
     margin: 0;
-    font-size: 14px;
+    font-size: 0.875rem;
     text-align: center;
     color: white;
 }
 
 .footer .footer-right {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: white;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@
 }
 
 .footer .footer-right span {
-    margin-right: 10px;
+    margin-right: 0.625rem;
 }
 
 

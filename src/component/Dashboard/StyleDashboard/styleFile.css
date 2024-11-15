@@ -16,57 +16,57 @@
 }
 
 .sidebar {
-  width: 240px;
+  width: 15rem;
   background-color: #f4f4f4;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .content {
   flex-grow: 1;
-  padding: 30px;
+  padding: 1.875rem;
   background-color: #f9f9f9;
-  border-left: 1px solid #ddd;
+  border-left: 0.0625rem solid #ddd;
 }
 
 .upload-form-container {
-  max-width: 600px;
+  max-width: 37.5rem;
   margin: 0 auto;
   background-color: #fff;
-  padding: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  padding: 1.875rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
 }
 
 .upload-title {
   color: #00aaff;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .user-welcome {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .upload-section {
-  margin-bottom: 30px; /* Increased space to make the buttons and status look less cramped */
+  margin-bottom: 1.875rem; 
 }
 
 input[type="file"] {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 0.625rem;
+  margin-bottom: 1.25rem;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
   box-sizing: border-box;
 }
 
 .upload-buttons-container {
   display: flex;
-  gap: 10px; /* Add space between the buttons */
+  gap: 0.625rem; 
   justify-content: flex-start;
-  margin-bottom: 20px; /* Ensure there's space between buttons and status */
+  margin-bottom: 1.25rem; 
 }
 
 .upload-button, .delete-button {
@@ -75,12 +75,12 @@ input[type="file"] {
   margin-top: auto;
   margin-bottom: auto;
   align-items: center;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   background-color: #00aaff;
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   transition: background-color 0.3s ease;
 }
 .upload-button:hover, .delete-button:hover {
@@ -90,7 +90,7 @@ input[type="file"] {
 .upload-status {
   color: #00aaff;
   display: inline;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: bold;
   text-align: center;
 }
@@ -107,13 +107,13 @@ input[type="file"] {
 .buttonLogin1, .buttonLogout {
   background-color: #00aaff;
   color: white;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   text-align: center;
   cursor: pointer;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  margin: 10px;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  margin: 0.625rem;
   transition: background-color 0.3s ease;
 }
 
@@ -198,8 +198,8 @@ button {
 
 /* azure-cost-section card */
 .azure-cost-section.card{
-  margin-left: 435px;
-  padding: 25px;
+  margin-left: 27.1875rem;
+  padding: 1.5625rem;
   width: 25%;
 }
 
@@ -210,8 +210,8 @@ button {
 
 /* admin-welcome */
 .admin-welcome {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
 }
 
 .admin-welcome{
@@ -234,38 +234,38 @@ button {
 .container-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
   justify-content: space-around;
 }
 
 .container-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.25rem;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .container-card {
   background: linear-gradient(to right, #00aaff, #0099cc); 
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  width: 240px;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  width: 15rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.3125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
 }
 
 .container-card h4 {
-  font-size: 18px;
+  font-size: 1.125rem;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 /* Container specific styles */
@@ -274,33 +274,33 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;  /* Align to the start vertically */
-  margin-top: 20px;
+  margin-top: 1.25rem;
   width: 100%;
-  padding: 0 15px;  /* Added padding for better spacing on smaller screens */
+  padding: 0 0.9375rem;  /* Added padding for better spacing on smaller screens */
 }
 
 /* File actions container */
 .file-actions {
   display: flex;
-  gap: 15px;
+  gap: 0.9375rem;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   width: 100%; /* Ensure the file actions are centered within the container */
-  max-width: 500px; /* Max width to keep the buttons from stretching too far */
+  max-width: 31.25rem; /* Max width to keep the buttons from stretching too far */
   margin-left: auto;
   margin-right: auto; /* Center the action buttons */
 }
 
 /* Styling for buttons in the file-actions container */
 .file-actions button {
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   background-color: #00aaff;
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   transition: background-color 0.3s ease;
-  font-size: 16px; /* Add font size for better readability */
+  font-size: 1rem; /* Add font size for better readability */
 }
 
 /* Hover effect for buttons */
@@ -313,23 +313,23 @@ button {
   display: flex;
   align-items: center;
   justify-content: center; /* Center horizontally */
-  margin: 10px 0;
+  margin: 0.625rem 0;
   width: 100%;
-  padding: 5px 0;
-  max-width: 600px; /* Keep file items from stretching too wide */
+  padding:  0.3125rem 0;
+  max-width: 37.5rem; /* Keep file items from stretching too wide */
   margin-left: auto;
   margin-right: auto; /* Center the file items */
 }
 
 /* Styling for checkboxes inside file items */
 .file-item input[type="checkbox"] {
-  margin-right: 10px;
+  margin-right: 0.625rem;
   transform: scale(1.2);  /* Slightly increase the size of the checkbox for better UX */
 }
 
 /* Download links section */
 .download-links {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   text-align: center; /* Center the links */
   width: 100%;
 }
@@ -339,14 +339,14 @@ button {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  max-width: 600px; 
+  max-width: 37.5rem; 
   margin-left: auto;
   margin-right: auto;
 }
 
 /* List item styling for download links */
 .download-links li {
-  margin: 5px 0;
+  margin: 0.3125rem 0;
 }
 
 /* Styling for download link */
@@ -354,7 +354,7 @@ button {
   color: #00aaff;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px; 
+  font-size: 1rem; 
 }
 
 /* Hover effect for download links */
@@ -367,12 +367,12 @@ button {
   display: inline-block;
   color: #fff;
   background-color: #00aaff;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 20px;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.3125rem;
+  margin-top: 1.25rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -383,9 +383,9 @@ button {
 /* App1 section positioning */
 .App1 {
   margin-left: auto;
-  margin-right: 150px;
+  margin-right: 9.375rem;
   width: 100%;
-  max-width: 900px; 
-  padding: 0 15px; 
+  max-width: 56.25rem; 
+  padding: 0 0.9375rem; 
 }
 

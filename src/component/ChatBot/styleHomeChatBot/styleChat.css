@@ -13,8 +13,8 @@ body {
 /* Container */
 .Container-ChatBot {
     margin-top: auto;
-    margin-left: 80px;
-    margin-right: 80px;
+    margin-left: 5rem;
+    margin-right: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,23 +35,23 @@ body {
     justify-content: center;
     flex-grow: 1;
     width: 100%;
-    padding: 15px 15px; 
-    margin-top: 60px; 
-    margin-bottom: 40px; 
+    padding: 0.9375rem 0.9375rem; 
+    margin-top: 3.75rem; 
+    margin-bottom: 2.5rem; 
     flex-direction: column;
 }
 
 /* Chatbox */
 .Chatbox {
     width: 100%;
-    max-width: 10000px;
+    max-width: 625rem;
     background: #ffffff;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 18px;
+    box-shadow: 0rem 0.375rem 0.9375rem rgba(0, 0, 0, 0.1);
+    border-radius: 1.125rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 500px; 
+    height: 31.25rem; 
     animation: fadeInChatbox ease 0.3s;
 }
 @keyframes fadeInChatbox {
@@ -71,12 +71,12 @@ body {
 /* Header of Chatbox */
 .Chatbox__header {
     background-color: #00aaff;
-    padding: 12px; 
+    padding: 0.75rem; 
     color: white;
     text-align: center;
-    font-size: 20px; 
+    font-size: 1.25rem; 
     font-weight: bold;
-    height: 60px; 
+    height: 3.75rem; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,12 +103,12 @@ body {
 /* Messages Area with scrollbar */
 .Chatbox__messages {
     flex-grow: 1;
-    padding: 15px; 
+    padding: 0.9375rem; 
     display: flex;
-    flex-direction: column; /* nội dung bắt đầu từ phía dưới */
-    gap: 10px; 
+    flex-direction: column; /* content bottom */
+    gap: 0.625rem; 
     overflow-y: auto; 
-    max-height: 400px; 
+    max-height: 25rem; 
     display: block;
 }
 
@@ -116,8 +116,8 @@ body {
 .message-container {
     display: flex;
     align-items: flex-start;
-    gap: 10px; 
-    margin-bottom: 10px; 
+    gap: 0.625rem; 
+    margin-bottom: 0.625rem; 
     width: 100%;
 }
 
@@ -133,12 +133,12 @@ body {
 
 /* Container for the bot's icon */
 .message-container__icon.bot {
-    width: 45px;
-    margin-top: 100px; 
+    width: 2.8125rem;
+    margin-top: 6.25rem; 
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 8px;
+    margin-right: 0.5rem;
 }
 
 /* Container for the user's avatar */
@@ -146,26 +146,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 12px;
-    margin-top: 5px;
+    margin-left: 0.75rem;
+    margin-top: 0.5rem;
 }
 
 .message-bubble.bot {
-    margin-top: 100px;
+    margin-top: 6.25rem;
     background-color: #f0f0f0;
     color: #333;
-    border-radius: 18px;
+    border-radius: 1.125rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    padding: 10px 15px; 
+    padding: 0.625rem 0.9375rem; 
     box-sizing: border-box;
     display: flex;
     position: flex ;
     align-items: flex-start;
     /* justify-content: flex-start; */
-    min-height: 40px; /* Chiều cao tối thiểu */
+    min-height: 2.5rem; /* min-height */
     line-height: 1.4;
-    margin-right: auto; /* Tin nhắn bot sẽ căn trái */
+    margin-right: auto; /* content left */
     max-width: 60%;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -179,19 +179,19 @@ body {
     color: white;
     width: auto;  
     max-width: 60%; 
-    border-radius: 18px;
+    border-radius: 1.125rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    padding: 10px 15px;  
+    padding: 0.625rem 0.9375rem;  
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
     /* justify-content: flex-end; */
-    min-height: 15px;
+    min-height: 0.9375rem;
     line-height: 1.4; 
-    margin-left: -1000px;
-    margin-right: 5px;
-    font-size: 15px;
+    margin-left: -62.5rem;
+    margin-right: 0.3125rem;
+    font-size: 0.9375rem;
     text-align: left;
     flex-shrink: 0;
 }
@@ -199,61 +199,61 @@ body {
 
 /* User avatar styles */
 .user-avatar {
-    width: 28px; 
-    height: 28px;
+    width: 1.75rem; 
+    height: 1.75rem;
     border-radius: 50%;
     object-fit: cover;
-    margin-left: 12px; 
+    margin-left: 0.75rem; 
 }
 
 /* Icon for bot */
 .bot-icon {
     color: #9C1DE7;
-    margin-right: 8px; 
+    margin-right: 0.5rem; 
 }
 
 /* Icon for user */
 .user-icon {
     color: #007bff;
-    margin-left: 12px; 
+    margin-left: 0.75rem; 
 }
 
 /* Footer (Input Area) */
 .Chatbox__footer {
-    padding: 12px 18px; 
+    padding: 0.75rem 1.125rem; 
     background-color: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid #ddd;
-    height: 55px; 
+    border-top: 0.0625rem solid #ddd;
+    height: 3.4375rem; 
 }
 
 /* Input Field */
 .chat-input {
     width: 75%; 
-    padding: 10px;
+    padding: 0.625rem;
     border: 1px solid #ccc;
-    border-radius: 20px; 
-    font-size: 14px; 
-    height: 35px; 
+    border-radius: 1.25rem; 
+    font-size: 0.875rem; 
+    height: 2.1875rem; 
 }
 
 /* Send Button */
 .chat-send-btn {
-    margin-right: 10px;
-    margin-left: 5px; 
+    margin-right: 0.625rem;
+    margin-left: 0.3125rem; 
     display: flex;
     align-items: center;
     justify-content: center;
     width: 20%;
-    padding: 12px 18px; 
+    padding: 0.75rem 1.125rem; 
     background-color: #00aaff;
     color: white;
     border: none;
-    border-radius: 30px;
+    border-radius: 1.875rem;
     cursor: pointer;
-    font-size: 14px; 
+    font-size: 0.875rem; 
     transition: none;
     text-align: center;
 }
@@ -264,17 +264,17 @@ body {
 }
 
 .chat-send-btn svg {
-    margin-right: 8px;
-    font-size: 18px; 
+    margin-right: 0.5rem;
+    font-size: 1.125rem; 
 }
 
 .Title_ChatBot{
     text-align: center;
-    font-size: 36px;
+    font-size: 2.25rem;
     color: #fff;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     font-weight: 600;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.5);
     animation: slideUp 1s ease-out;
 }
 .Title_ChatBot:hover {
@@ -299,11 +299,11 @@ body {
 
 .Title1{
     text-align: center;
-    font-size: 36px;
+    font-size: 2.25rem;
     color: #fff;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     font-weight: 600;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow:  0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1s ease-out;
 }
 .Title1:hover {
@@ -315,9 +315,9 @@ body {
 .login-btn1 {
     background-color: #00aaff; 
     color: white; 
-    font-size: 16px; 
-    padding: 12px 24px; 
-    border-radius: 10px; 
+    font-size: 1rem; 
+    padding: 0.75rem 1.5rem; 
+    border-radius: 0.625rem; 
     border: none; 
     cursor: pointer;
     transition: all 0.3s ease; 
@@ -329,13 +329,13 @@ body {
     background-color: #00aaff; 
     color: white; 
     transform: scale(1.05); 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2); 
 }
 
 
 .login-btn1:focus {
     outline: none; 
-    box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.4); 
+    box-shadow: 0 0 0 0.1875rem rgba(0, 170, 255, 0.4); 
 }
 
 .login-btn1:active {
@@ -358,12 +358,12 @@ body {
 
   .tab-button {
     background-color: #f1f1f1;
-    border: 1px solid #ddd;
-    padding: 10px 12.5px;
-    margin-bottom: 10px;
+    border: 0.0625rem solid #ddd;
+    padding: 0.625rem 0.75125rem;
+    margin-bottom: 0.625rem;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 8px;
+    font-size: 1rem;
+    border-radius: 0.5rem;
     transition: background-color 0.3s ease, color 0.3s ease;
     width: 100%;
     text-align: center;

@@ -17,28 +17,28 @@
 
 .content {
   flex-grow: 1;
-  padding: 30px;
+  padding: 1.875rem;
   background-color: #f9f9f9;
-  border-left: 1px solid #ddd;
+  border-left: 0.0625rem solid #ddd;
 }
 
 .Title_User {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   color: #333;
 }
 
 .buttonLogin, .buttonLogout {
   background-color: #00aaff;
   color: white;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   text-align: center;
   cursor: pointer;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  margin: 10px;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  margin: 0.625rem;
   transition: background-color 0.3s ease;
 }
 
@@ -61,11 +61,11 @@ button {
 /* Responsive Design: Stack content on small screens */
 @media (max-width: 768px) {
   .content {
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .buttonLogin, .buttonLogout {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
   }
 }

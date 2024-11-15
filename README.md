@@ -31,4 +31,12 @@ Before running the project locally, make sure you have:
 - **Azure Subscription**: You need an Azure account with Blob Storage created.
 - **Azure AD Application**: To authenticate users via Microsoft, you'll need to create an Azure Active Directory (Azure AD) app and get the **Client ID** and **Tenant ID**.
 
+## Setup Instructions
 
+- **Disable Handle** 
+
+- **Install Dependencies, Libary**
+
+- **Run the Development Server**
+
+![Alt-Company](../../frontend-sso/react-sso/src/assets/Image_Company.jpg)

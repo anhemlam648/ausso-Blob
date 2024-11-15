@@ -5,7 +5,7 @@
     align-items: center;
     background: linear-gradient(to right, #00aaff, #0099cc); 
     color: white;
-    padding: 20px 40px; 
+    padding: 1.25rem 2.5rem; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
     font-family: 'Roboto', sans-serif;
     transition: background-color 0.2s ease;
@@ -14,14 +14,14 @@
     left: 0;
     right: 0;
     z-index: 9999; 
-    height: 80px;
+    height: 5rem;
 }
 
 .header .logo h1 {
     margin: 0;
-    font-size: 28px; 
+    font-size: 1.75rem; 
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem;
 }
 
 .header-right {
@@ -32,23 +32,23 @@
 .user-info {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }
 
 .user-info span {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500; 
-    margin-right: 10px;
+    margin-right: 0.625rem;
 }
 
 .logout-btn {
     background-color: #e74c3c;
     border: none;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
     cursor: pointer;
     color: white;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     transition: background-color 0.3s ease, transform 0.3s ease;
     display: flex;
     align-items: center;
@@ -64,15 +64,15 @@
 }
 
 .logout-btn svg {
-    margin-right: 8px;
-    font-size: 16px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
 }
 
 .buttonLogin {
-    font-size: 16px;
-    padding: 12px 30px; 
-    border-radius: 12px;
-    border: 2px solid #00aaff;
+    font-size: 1rem;
+    padding: 0.75rem 1.875rem; 
+    border-radius: 0.75rem;
+    border: 0.5rem solid #00aaff;
     background-color: #00aaff;
     color: white;
     word-wrap: break-word;
@@ -84,7 +84,7 @@
     justify-content: center;
     flex-shrink: 0;
     text-align: center;
-    min-width: 200px; 
+    min-width: 12.5rem; 
     white-space: nowrap; 
 }
 /* Hover effect */
@@ -97,5 +97,5 @@
 /* Focus state for accessibility */
 .buttonLogin:focus {
   outline: none; 
-  box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.8); 
+  box-shadow: 0 0 0 0.125rem rgba(0, 170, 255, 0.8); 
 }

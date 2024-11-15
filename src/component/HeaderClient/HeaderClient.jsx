@@ -70,8 +70,14 @@ function Header() {
         ) : (
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
+            <li className="nav-item">
+                <Link className="nav-link page" aria-current="page" to="/">Home</Link>
+              </li>
               <li className="nav-item">
-                <Link className="nav-link page" aria-current="page" to="/dashboard">Home Admin</Link>
+                <Link className="nav-link page" aria-current="page" to="/chatbotweb">Service</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link page" aria-current="page" to="/dashboard">Admin</Link>
               </li>
             </ul>
             <button onClick={handleLogout} className="buttonLogout" style={{background:"red"}}>Logout</button>

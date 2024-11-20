@@ -14,7 +14,7 @@ const Dashboard = () => {
                 <div className="content">
                     <div className="cards-container">
                         <div className="card">
-                            <h3 style={{color:"#00aaff"}}>Welcome Admin</h3>
+                            <h3 style={{color:"#072ac8"}}>Welcome Admin</h3>
                         </div>
                     </div>
                 </div>

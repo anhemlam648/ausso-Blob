@@ -118,9 +118,9 @@ function Home() {
               </p>
               <div className="box-container">
                 <div className="box">
-                  <p><span> Founded: </span> 2019</p>
-                  <p><span> Address 1: </span> Ha Noi City </p>
-                  <p><span> Address 2: </span> Ho Chi Minh City </p>
+                  <p style={{color:"#072ac8"}}><span> Founded: </span> 2019</p>
+                  <p style={{color:"#072ac8"}}><span> Address 1: </span> Ha Noi City </p>
+                  <p style={{color:"#072ac8"}}><span> Address 2: </span> Ho Chi Minh City </p>
                 </div>
               </div>
               <div className="button-group">

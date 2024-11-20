@@ -113,7 +113,7 @@ function Container() {
                     <div key={index} className="container-card">
                       <h4>{container}</h4>
                       <button
-                        className="btn-container-action"
+                        className="btn-container-action" style={{background: "linear-gradient(to right, #072ac8, #0093e9);"}}
                         onClick={() => handleManageClick(container)} // Gọi API khi nhấn Manage
                       >
                         Manage

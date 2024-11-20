@@ -15,7 +15,7 @@ function Uploadfile(){
     const [containers, setContainers] = useState([]); // State to store containers
     const [container, setContainer] = useState(null);  // State to store selected container
   
-     // Fetch the containers from the backend
+  // Fetch the containers from the backend
   const fetchContainers = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/get-all-container");
@@ -262,7 +262,7 @@ function Uploadfile(){
                     <div className="upload-buttons-container">
                     
                     {/* Dropdown for selecting container */}
-                    <select onChange={(e) => handleContainer(e.target.value)} className="dropDown" style={{padding:"10px",borderRadius:"13px"}}>
+                    <select onChange={(e) => handleContainer(e.target.value)} className="dropDown" style={{padding:"0.625rem",borderRadius:"0.8125rem"}}>
                       <option value="">Select Container</option>
                       {containers.length > 0 ? (
                         containers.map((container, index) => (

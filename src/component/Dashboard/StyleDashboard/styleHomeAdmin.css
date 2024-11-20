@@ -30,7 +30,7 @@
 }
 
 .buttonLogin, .buttonLogout {
-  background-color: #00aaff;
+  background-color: #072ac8;
   color: white;
   padding: 0.75rem 1.5rem;
   text-align: center;
@@ -43,15 +43,15 @@
 }
 
 .buttonLogin:hover, .buttonLogout:hover {
-  background-color: #00aaff;
+  background-color: #072ac8;
 }
 
 .buttonLogin {
-  background-color: #00aaff;
+  background-color: #072ac8;
 }
 
 .buttonLogin:hover {
-  background-color: #00aaff;
+  background-color: #072ac8;
 }
 
 button {

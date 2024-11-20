@@ -6,8 +6,9 @@
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background-image: url("../../../assets/backgroundLogin.jpg");
+    /* font-family: 'Nunito', sans-serif;
+    background-image: url("../../../assets/backgroundLogin.jpg"); */
+    background: linear-gradient(to right, #072ac8, #0093e9);
 }
 
 /* Container */
@@ -70,7 +71,7 @@ body {
 }
 /* Header of Chatbox */
 .Chatbox__header {
-    background-color: #00aaff;
+    background: linear-gradient(to right, #072ac8, #0093e9);
     padding: 0.75rem; 
     color: white;
     text-align: center;
@@ -248,7 +249,7 @@ body {
     justify-content: center;
     width: 20%;
     padding: 0.75rem 1.125rem; 
-    background-color: #00aaff;
+    background: linear-gradient(to right, #072ac8, #0093e9);
     color: white;
     border: none;
     border-radius: 1.875rem;
@@ -260,7 +261,7 @@ body {
 
 /* Remove the hover effect */
 .chat-send-btn:hover {
-    background-color: #00aaff;
+    background-color: #0056b3;
 }
 
 .chat-send-btn svg {
@@ -307,7 +308,7 @@ body {
     animation: fadeInUp 1s ease-out;
 }
 .Title1:hover {
-    color: #00aaff;
+    color: #007bff;
     transition: color 0.3s ease;
 }
 
@@ -372,7 +373,7 @@ body {
   
 
   .tab-button.active {
-    background-color: #0056b3;
+    background-color: #072ac8;
     color: white;
   }
   

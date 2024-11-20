@@ -38,7 +38,7 @@
 }
 
 .upload-title {
-  color: #00aaff;
+  color: #072ac8;
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1.25rem;
@@ -76,19 +76,21 @@ input[type="file"] {
   margin-bottom: auto;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background-color: #00aaff;
+  background: linear-gradient(to right, #072ac8, #0093e9);
   color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease;
 }
-.upload-button:hover, .delete-button:hover {
-  background-color: #00aaff;
+/* .upload-button:hover, .delete-button:hover {
+  background-color: #072ac8;
+} */
+.upload-button{
+  margin-right: -0.1rem;
 }
-
 .upload-status {
-  color: #00aaff;
+  background: linear-gradient(to right, #072ac8, #0093e9);
   display: inline;
   font-size: 0.875rem;
   font-weight: bold;
@@ -105,7 +107,7 @@ input[type="file"] {
 
 /* Button logi */
 .buttonLogin1, .buttonLogout {
-  background-color: #00aaff;
+  background: linear-gradient(to right, #072ac8, #0093e9);
   color: white;
   padding: 0.75rem 1.5rem;
   text-align: center;
@@ -118,15 +120,15 @@ input[type="file"] {
 }
 
 .buttonLogin1:hover, .buttonLogout:hover {
-  background-color: #00aaff;
+  background-color: #072ac8;
 }
 
 .buttonLogin1 {
-  background-color: #00aaff;
+  background-color: #072ac8;
 }
 
 .buttonLogin1:hover {
-  background-color: #00aaff;
+  background-color: #072ac8;
 }
 
 button {
@@ -146,7 +148,7 @@ button {
 }
 /* Optional: Add some spacing and shadow for the overall page */
 .upload-container {
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #f9f9f9;
 }
 
@@ -180,7 +182,7 @@ button {
 }
 
 .user-welcome{
-  color: #00aaff;
+  color: #072ac8;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   animation: slideUp ease 0.3s;
 }
@@ -198,14 +200,14 @@ button {
 
 /* azure-cost-section card */
 .azure-cost-section.card{
-  margin-left: 27.1875rem;
+  margin-left: 28.9rem;
   padding: 1.5625rem;
   width: 25%;
 }
 
 /* Title */
 .Title{
-  color: #00aaff;
+  color: #072ac8;
 }
 
 /* admin-welcome */
@@ -215,7 +217,7 @@ button {
 }
 
 .admin-welcome{
-  color: #00aaff;
+  color: #072ac8;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   animation: slideUp ease 0.3s;
 }
@@ -247,7 +249,7 @@ button {
 }
 
 .container-card {
-  background: linear-gradient(to right, #00aaff, #0099cc); 
+  background: linear-gradient(to right, #072ac8, #0099cc); 
   border: 0.0625rem solid #ddd;
   border-radius: 0.5rem;
   padding: 1.25rem;
@@ -294,7 +296,7 @@ button {
 /* Styling for buttons in the file-actions container */
 .file-actions button {
   padding: 0.75rem 1.5rem;
-  background-color: #00aaff;
+  background: linear-gradient(to right, #072ac8, #0093e9);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -305,7 +307,7 @@ button {
 
 /* Hover effect for buttons */
 .file-actions button:hover {
-  background-color: #0078d4;
+  background-color: #072ac8;
 }
 
 /* Styling for file items */
@@ -351,7 +353,7 @@ button {
 
 /* Styling for download link */
 .download-links a {
-  color: #00aaff;
+  color: #072ac8;
   text-decoration: none;
   font-weight: bold;
   font-size: 1rem; 
@@ -366,7 +368,7 @@ button {
 .btn-back {
   display: inline-block;
   color: #fff;
-  background-color: #00aaff;
+  background: linear-gradient(to right, #072ac8, #0093e9);
   padding: 0.625rem 1.25rem;
   border-radius: 0.3125rem;
   margin-top: 1.25rem;
@@ -376,9 +378,9 @@ button {
   text-align: center;
 }
 
-.btn-back:hover {
-  background-color: #0078d4;
-}
+/* .btn-back:hover {
+  background-color: #072ac8;
+} */
 
 /* App1 section positioning */
 .App1 {
@@ -389,3 +391,7 @@ button {
   padding: 0 0.9375rem; 
 }
 
+/* Button Container
+.container-cards.btn-container-action{
+    background: linear-gradient(to right, #072ac8, #0093e9);
+} */

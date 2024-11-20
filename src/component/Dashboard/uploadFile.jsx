@@ -12,6 +12,26 @@ function Uploadfile(){
     const [userInfo, setUserInfo] = useState(null);
     const [file, setFile] = useState(null);
     const [uploadStatus, setUploadStatus] = useState(null);
+    const [containers, setContainers] = useState([]); // State to store containers
+    const [container, setContainer] = useState(null);  // State to store selected container
+  
+     // Fetch the containers from the backend
+  const fetchContainers = async () => {
+    try {
+      const response = await axios.get("http://localhost:5010/api/v1/get-all-container");
+      if (response.data && response.data.container) {
+        setContainers(response.data.container); // Update containers state with the response
+      } else {
+        setContainers([]); // Handle the case when no containers are returned
+      }
+    } catch (error) {
+      console.error("Error fetching containers:", error);
+      setContainers([]); // If there's an error, clear the containers
+    }
+  };
+
+   
+
     // const [azureCostData, setAzureCostData] = useState(null);
     // useEffect(() => {
     //     fetch("/api/v1/user-info")
@@ -74,6 +94,9 @@ function Uploadfile(){
         setFile(selectedFile);
       };
 
+      const handleContainer = (selectedContainer) =>{
+        setContainer(selectedContainer);
+      }
       const handleFileUpload = async () => {
         if (!file) {
           setUploadStatus("No file selected!");
@@ -82,7 +105,7 @@ function Uploadfile(){
       
         const formData = new FormData();
         formData.append("files", file);
-        formData.append("container", "upload-images");
+        formData.append("container", container);
         
         
         // console.log("Form Data being sent:", formData);
@@ -116,7 +139,7 @@ function Uploadfile(){
           return;
         }
       
-        const containerName = "upload-images"; 
+        // const containerName = container.name; 
         const fileName = file.name; 
       
         // Xử lý DELETE request
@@ -124,7 +147,7 @@ function Uploadfile(){
           setUploadStatus("Deleting...");
       
           const response = await axios.delete(
-            `http://localhost:5010/api/v1/delete-files?container=${containerName}&blob=${fileName}`,
+            `http://localhost:5010/api/v1/delete-files?container=${container}&blob=${fileName}`,
             { withCredentials: true }
           );
       
@@ -160,6 +183,7 @@ function Uploadfile(){
       //   }
       // };
       useEffect(() => {
+        fetchContainers(); 
         checkAuth();
         // fetchAzureCost();
       }, []);
@@ -236,6 +260,21 @@ function Uploadfile(){
                   <div className="upload-section">
                     <input type="file" onChange={handleFileChange} />
                     <div className="upload-buttons-container">
+                    
+                    {/* Dropdown for selecting container */}
+                    <select onChange={(e) => handleContainer(e.target.value)} className="dropDown" style={{padding:"10px",borderRadius:"13px"}}>
+                      <option value="">Select Container</option>
+                      {containers.length > 0 ? (
+                        containers.map((container, index) => (
+                          <option key={index} value={container}>
+                            {container}
+                          </option>
+                        ))
+                      ) : (
+                        <option disabled>No containers available</option>
+                      )}
+                    </select>
+
                       <button onClick={handleFileUpload} className="upload-button">Upload</button>
                       <button onClick={handleDeleteUpload} className="delete-button">Delete File</button>
                       {/* {uploadStatus && <p>{uploadStatus}</p>} */}

@@ -9,10 +9,10 @@ function Container() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [containers, setContainers] = useState([]);
-//   const [files, setFiles] = useState([]);  // State lưu danh sách các file khi nhấn vào Manage
-//   const [selectedContainer, setSelectedContainer] = useState(null);  // Container đã chọn
+//   const [files, setFiles] = useState([]);  // Save State File 
+//   const [selectedContainer, setSelectedContainer] = useState(null);  // Selection container
   const navigate = useNavigate();
-  // Kiểm tra tính xác thực người dùng
+  // Check auth
   const checkAuth = async () => {
     try {
       const response = await axios.get("http://localhost:5010/api/v1/check-auth", {
@@ -20,8 +20,8 @@ function Container() {
       });
       if (response.data.isAuthenticated) {
         setIsAuthenticated(true);
-        fetchUserInfo(); // Fetch thông tin người dùng khi đã đăng nhập
-        fetchContainers(); // Fetch containers sau khi đã xác thực
+        fetchUserInfo(); 
+        fetchContainers(); 
       } else {
         setIsAuthenticated(false);
       }
@@ -29,6 +29,20 @@ function Container() {
       console.error("Authentication check failed", error);
     }
   };
+  const fetchContainers = async () => {
+    try {
+        const response = await axios.get("http://localhost:5010/api/v1/get-all-container", {
+            withCredentials: true,
+        });
+        if (Array.isArray(response.data.container)) {
+            setContainers(response.data.container); 
+        } else {
+            console.error("Expected an array but got:", response.data.container);
+        }
+    } catch (error) {
+        console.error("Failed to fetch containers", error);
+    }
+};
 
   // Fetch thông tin người dùng
   const fetchUserInfo = async () => {
@@ -43,18 +57,18 @@ function Container() {
   };
 
   // Fetch danh sách containers
-  const fetchContainers = async () => {
-    try {
-      const response = await axios.get("http://localhost:5010/api/v1/get-all-container", {
-        withCredentials: true,
-      });
-      if (response.data && response.data.container) {
-        setContainers(response.data.container); // Lưu danh sách containers vào state
-      }
-    } catch (error) {
-      console.error("Failed to fetch containers", error);
-    }
-  };
+  // const fetchContainers = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:5010/api/v1/get-all-container", {
+  //       withCredentials: true,
+  //     });
+  //     if (response.data && response.data.container) {
+  //       setContainers(response.data.container); // Lưu danh sách containers vào state
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to fetch containers", error);
+  //   }
+  // };
 
   // Xử lý đăng nhập
   // const handleLogin = () => {
@@ -62,14 +76,13 @@ function Container() {
   // };
 
   const handleManageClick = (containerName) => {
-    // Điều hướng đến trang hiển thị files của container
     navigate(`/files/${containerName}`); // Sử dụng navigate thay vì history.push
   };
 
-  // useEffect để kiểm tra xác thực khi component được mount
   useEffect(() => {
+    fetchContainers();
     checkAuth();
-  }, []); // Chỉ gọi checkAuth khi component được render lần đầu
+  }, []); 
 
   return (
     <div className="upload-container">
@@ -104,11 +117,11 @@ function Container() {
 
 
             {/* List Container Blob */}
-            <div className="container-list">
+            {/* <div className="container-list">
               {containers.length === 0 ? (
                 <p>No containers available.</p>
               ) : (
-                <div className="container-cards">
+                <div  className="container-cards">
                   {containers.map((container, index) => (
                     <div key={index} className="container-card">
                       <h4>{container}</h4>
@@ -122,8 +135,32 @@ function Container() {
                   ))}
                 </div>
               )}
-            </div>
-{/* 
+            </div> */}
+            <div className="container-list">
+            {containers.length === 0 ? (
+                <p>No containers available.</p>
+            ) : (
+                <div className="container-cards">
+                    {Array.isArray(containers) && containers.length > 0 ? (
+                        containers.map((container, index) => (
+                            <div key={index} className="container-card">
+                                <h4>{container}</h4>
+                                <button
+                                    className="btn-container-action"
+                                    style={{background: "linear-gradient(to right, #072ac8, #0093e9);"}}
+                                    onClick={() => handleManageClick(container)} // Call API Container
+                                >
+                                    Manage
+                                </button>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Invalid data format for containers.</p>
+                    )}
+                </div>
+            )}
+        </div>
+            {/* 
             Hiển thị các file trong container khi đã chọn
             {selectedContainer && (
               <div className="file-list">

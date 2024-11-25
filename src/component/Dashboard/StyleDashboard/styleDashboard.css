@@ -43,7 +43,7 @@
 }
 
 .sidebar-menu li a:hover {
-    background-color: #007bff; /* Màu nền khi hover */
+    background-color: #007bff; 
 }
 
 /* Optional: If you want to add a little shadow to each <li> */
@@ -188,20 +188,20 @@
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;  /* Đảm bảo toàn bộ chiều cao của màn hình */
+    height: 100vh; 
   }
   
   /* Main container for Dashboard */
   .main-container {
     display: flex;
     flex: 1;
-    overflow: hidden;  /* Ngăn không cho phần content kéo dài ngoài viewport */
+    overflow: hidden; 
   }
   
   /* Sidebar style */
   .sidebar {
-    width: 15.625rem;  /* Đảm bảo sidebar có kích thước cố định */
-    background-color: #2d3b4f;  /* Màu nền cho sidebar */
+    width: 15.625rem;  
+    background-color: #2d3b4f;  
     color: white;
     padding: 1.25rem;
     height: 100%;
@@ -209,10 +209,10 @@
   
   /* Main content area */
   .content {
-    flex: 1;  /* Chiếm phần còn lại */
+    flex: 1;  
     padding: 1.25rem;
     background-color: #f4f6f9;
-    overflow-y: auto;  /* Cho phép scroll nếu nội dung dài */
+    overflow-y: auto;  
   }
   
   /* Card container inside content */

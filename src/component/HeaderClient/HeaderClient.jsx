@@ -6,6 +6,7 @@ import axios from 'axios';
 function Header() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
+  const [expanded, setExpanded] = useState(false);
   useEffect(() => {
     checkAuth();
   }, []);
@@ -55,20 +56,35 @@ function Header() {
       };
     
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar" > 
+    <nav className="navbar navbar-expand-lg navbar-light bg-light custom-navbar"> 
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">CMCTS</Link>
+            {/* Button để toggle menu trên màn hình nhỏ */}
+        {isAuthenticated && (
+            <button 
+          className="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav" 
+          aria-controls="navbarNav" 
+          aria-expanded={expanded ? "true" : "false"} 
+          aria-label="Toggle navigation"
+          onClick={() => setExpanded(!expanded)} // Toggle trạng thái expanded
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        )}
         {/* <Link className="navbar-brand" to="/dashboard">CMCTS</Link> */}
-        {/* Button để toggle menu trên màn hình nhỏ */}
         {
         !isAuthenticated  ? (
            <div>
-             <button onClick={handleLogin} className="buttonLogin">
+                  <button onClick={handleLogin} className="buttonLogin">
                     Login with Microsoft
                   </button>
            </div>
         ) : (
-          <div className="collapse navbar-collapse" id="navbarNav">
+          <div className={`collapse navbar-collapse ${expanded ? 'show' : ''}`} id="navbarNav">
+       
             <ul className="navbar-nav">
             <li className="nav-item">
                 <Link className="nav-link page" aria-current="page" to="/">Home</Link>
@@ -79,14 +95,12 @@ function Header() {
               <li className="nav-item">
                 <Link className="nav-link page" aria-current="page" to="/dashboard">Admin</Link>
               </li>
+              <li onClick={handleLogout} className="nav-item">
+              <Link className="nav-link page" aria-current="page"> Logout </Link>
+                </li>
             </ul>
-            <button onClick={handleLogout} className="buttonLogout" style={{background:"red"}}>Logout</button>
           </div>
-          )
-        }
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          )}
       </div>
     </nav>
   );

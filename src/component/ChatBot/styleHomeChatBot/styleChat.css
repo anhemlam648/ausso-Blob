@@ -197,7 +197,16 @@ body {
     flex-shrink: 0;
 }
 
+.formatted-line {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
 
+.bullet-point {
+    color: #0056b3; /* Màu sắc của dấu chấm đầu dòng */
+    margin-right: 10px; /* Khoảng cách giữa dấu chấm và văn bản */
+}
 /* User avatar styles */
 .user-avatar {
     width: 1.75rem; 
@@ -387,7 +396,14 @@ body {
     transform: translateX(100%);
   }
 
-
+  /* chat Dify */
+  #dify-chatbot-bubble-button {
+    background-color: #1C64F2 !important;
+  }
+  #dify-chatbot-bubble-window {
+    width: 24rem !important;
+    height: 40rem !important;
+  }
   
   
 

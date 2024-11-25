@@ -52,6 +52,18 @@ const Chatbotweb = () => {
     //     window.location.href = 'http://localhost:5010/api/v1/login'; 
     // };
 
+
+    // const formatLongMessage = (message, maxLength = 50) => {
+    //     const lines = [];
+    //     for (let i = 0; i < message.length; i += maxLength) {
+    //         const line = message.slice(i, i + maxLength);
+    //         // Thêm "•" cho các dòng (trừ dòng đầu tiên)
+    //         lines.push(i === 0 ? line : `• ${line}`);
+    //     }
+    //     return lines;
+    // };
+
+    //HandleSubmit Chat Web
     const handleChatSubmit = async () => {
         if (message.trim() === "") return;
         setLoading(true);
@@ -66,6 +78,7 @@ const Chatbotweb = () => {
             const response = await axios.post('http://localhost:5003/chat-with-web', chatRequest);
 
             const botResponse = response.data.content;
+            // const formatResponse = formatLongMessage(botResponse)
             setHistory(prevHistory => [...prevHistory.slice(0, -1), { user: userMessage, bot: botResponse }]);
         } catch (error) {
             console.error('Error while submitting message:', error);
@@ -164,6 +177,10 @@ const Chatbotweb = () => {
                                         {msg.bot && (
                                             <div className="message-bubble bot">
                                                 <span className="message-content">{msg.bot}</span>
+                                                 {/* {msg.bot.split("\n").map((line, idx) => (
+                                                    <p key={idx} className="formatted-line">{line}</p>
+                                                ))} */}
+                                               
                                             </div>
                                         )}
 

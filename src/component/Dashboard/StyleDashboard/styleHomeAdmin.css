@@ -1,9 +1,6 @@
 /* General styles for the Admin Dashboard */
 .home-container {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -13,6 +10,7 @@
   display: flex;
   flex-grow: 1;
   background-color: #f9f9f9;
+  flex-direction: row; /* Default direction for larger screens */
 }
 
 .content {
@@ -46,26 +44,62 @@
   background-color: #072ac8;
 }
 
-.buttonLogin {
-  background-color: #072ac8;
-}
-
-.buttonLogin:hover {
-  background-color: #072ac8;
-}
-
 button {
   cursor: pointer;
 }
 
 /* Responsive Design: Stack content on small screens */
 @media (max-width: 768px) {
+  /* Make the content padding smaller */
   .content {
     padding: 1.25rem;
   }
 
+  /* Stack the buttons to take full width on small screens */
   .buttonLogin, .buttonLogout {
     width: 100%;
     margin-bottom: 0.625rem;
+  }
+
+  /* Adjust main container layout for smaller screens */
+  .main-container {
+    flex-direction: column;  /* Stack sidebar and content on top of each other */
+  }
+
+  /* Center the home container content */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Vertically center */
+    align-items: center;      /* Horizontally center */
+    padding: 1rem;
+  }
+
+  /* Title styling adjustment */
+  .Title_User {
+    font-size: 1.25rem;  /* Slightly smaller title font for mobile */
+    margin-bottom: 1rem;
+    text-align: center;   /* Ensure title is centered */
+  }
+}
+
+/* Further responsive adjustments for very small screens (320px) */
+@media (max-width: 320px) {
+  /* Further reduce padding for very small screens */
+  .content {
+    padding: 1rem;
+  }
+
+  /* Make buttons smaller and adjust font size */
+  .buttonLogin, .buttonLogout {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+
+  /* Adjust the Title_User font size for very small screens */
+  .Title_User {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
   }
 }

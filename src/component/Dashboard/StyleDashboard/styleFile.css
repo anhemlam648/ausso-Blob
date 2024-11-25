@@ -1,12 +1,12 @@
-/* General styles for the Upload Page */
+/* General Styles for the Upload Page */
 .upload-container {
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding: 1rem;
+  background-color: #f9f9f9;
+
 }
 
 .main-container {
@@ -18,380 +18,420 @@
 .sidebar {
   width: 15rem;
   background-color: #f4f4f4;
-  padding: 1.25rem;
+  padding: 1rem;
 }
 
 .content {
   flex-grow: 1;
-  padding: 1.875rem;
+  padding: 1.25rem;
   background-color: #f9f9f9;
-  border-left: 0.0625rem solid #ddd;
+  border-left: 1px solid #ddd;
 }
 
 .upload-form-container {
-  max-width: 37.5rem;
+  max-width: 25rem; /* Adjusted for small screens */
   margin: 0 auto;
   background-color: #fff;
-  padding: 1.875rem;
+  padding: 1.25rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
 
 .upload-title {
   color: #072ac8;
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Slightly reduced font-size */
   font-weight: bold;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem; /* Adjusted for small screens */
 }
 
 .user-welcome {
-  font-size: 1.125rem;
-  margin-bottom: 1.25rem;
+  font-size: 1rem; 
+  color: #072ac8;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  animation: slideUp 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .upload-section {
-  margin-bottom: 1.875rem; 
+  margin-bottom: 1.25rem;
 }
 
 input[type="file"] {
   width: 100%;
-  padding: 0.625rem;
-  margin-bottom: 1.25rem;
-  border: 0.0625rem solid #ccc;
+  padding: 0.5rem; /* Smaller padding for small screens */
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
   border-radius: 0.25rem;
   box-sizing: border-box;
 }
 
 .upload-buttons-container {
   display: flex;
-  gap: 0.625rem; 
-  justify-content: flex-start;
-  margin-bottom: 1.25rem; 
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .upload-button, .delete-button {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  align-items: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   background: linear-gradient(to right, #072ac8, #0093e9);
   color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 0.25rem;
-  transition: background-color 0.3s ease;
+  width: 100%; /* Full width buttons */
+  max-width: none; /* Remove any max-width */
 }
-/* .upload-button:hover, .delete-button:hover {
+
+.upload-button:hover, .delete-button:hover {
   background-color: #072ac8;
-} */
-.upload-button{
-  margin-right: -0.1rem;
 }
+
 .upload-status {
-  background: linear-gradient(to right, #072ac8, #0093e9);
-  display: inline;
+  color: #072ac8;
   font-size: 0.875rem;
   font-weight: bold;
   text-align: center;
 }
 
-/* .upload-status.success {
-  color: green;
-}
-
-.upload-status.error {
-  color: red;
-} */
-
-/* Button logi */
 .buttonLogin1, .buttonLogout {
   background: linear-gradient(to right, #072ac8, #0093e9);
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   text-align: center;
   cursor: pointer;
   border: none;
   border-radius: 0.25rem;
   font-size: 1rem;
-  margin: 0.625rem;
-  transition: background-color 0.3s ease;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 .buttonLogin1:hover, .buttonLogout:hover {
   background-color: #072ac8;
 }
 
-.buttonLogin1 {
-  background-color: #072ac8;
-}
-
-.buttonLogin1:hover {
-  background-color: #072ac8;
-}
-
-button {
-  cursor: pointer;
-}
-
-/* Responsive Design: Stack content on small screens */
-@media (max-width: 768px) {
-  .content {
-    padding: 20px;
-  }
-
-  .buttonLogin, .buttonLogout {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-/* Optional: Add some spacing and shadow for the overall page */
-.upload-container {
-  padding: 1.25rem;
-  background-color: #f9f9f9;
-}
-
-.upload-form-container {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Adjust for mobile */
-@media (max-width: 768px) {
+/* Responsive adjustments for small screens like 320px */
+@media (max-width: 320px) {
   .main-container {
-    flex-direction: column;
+    flex-direction: column; /* Stack sidebar and content */
   }
-  .upload-buttons-container {
-    flex-direction: column;
-    align-items: center;
+
+  .sidebar {
+    width: 100%; /* Make sidebar full width */
+    padding: 0.5rem; /* Smaller padding for smaller screens */
+  }
+
+  .content {
+    padding: 1rem; /* Smaller padding for smaller screens */
+  }
+
+  .upload-form-container {
+    max-width: 20rem; /* Narrower container for small screens */
+    padding: 1rem;
+  }
+
+  .upload-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .user-welcome {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  input[type="file"] {
+    padding: 0.5rem; /* Smaller input padding */
+    margin-bottom: 1rem;
   }
 
   .upload-button, .delete-button {
-    width: 100%;
-    margin-bottom: 10px;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
   }
 
-  .buttonLogin {
-    width: 100%;
+  .upload-status {
+    font-size: 0.75rem; /* Smaller font size for status messages */
   }
+
+  .file-container {
+    padding: 0 0.5rem; /* Narrower padding on file container */
+  }
+
   .container-card {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 20px;
+    width: 100%; /* Full width cards */
+    max-width: 100%; /* Make card width 100% on small screens */
+    margin-bottom: 1rem;
+  }
+
+  .btn-back {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem; /* Smaller font size for back button */
+  }
+
+  .remove-btn {
+    width: 1rem; /* Smaller remove button */
+    height: 1rem;
+    font-size: 0.5rem; /* Smaller font size for remove button */
+  }
+
+  .download-links ul {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .download-links a {
+    font-size: 0.875rem; /* Smaller font size for download links */
+  }
+
+  .file-actions button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
   }
 }
 
-.user-welcome{
-  color: #072ac8;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  animation: slideUp ease 0.3s;
+
+.file-item {
+  flex-direction: column; /* Stack file items vertically */
+  align-items: flex-start;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0;
 }
 
-@keyframes slideUp {
-  0% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-/* azure-cost-section card */
-.azure-cost-section.card{
-  margin-left: 28.9rem;
-  padding: 1.5625rem;
-  width: 25%;
-}
-
-/* Title */
-.Title{
-  color: #072ac8;
-}
-
-/* admin-welcome */
-.admin-welcome {
-  font-size: 1.125rem;
-  margin-bottom: 1.25rem;
-}
-
-.admin-welcome{
-  color: #072ac8;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  animation: slideUp ease 0.3s;
-}
-
-@keyframes slideUp {
-  0% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-/* container */
-.container-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  justify-content: space-around;
-}
-
-.container-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  justify-content: center;
-  margin-top: 1.25rem;
-}
-
-.container-card {
-  background: linear-gradient(to right, #072ac8, #0099cc); 
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-  width: 15rem;
-  text-align: center;
-  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container-card:hover {
-  transform: translateY(-0.3125rem);
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
-}
-
-.container-card h4 {
-  font-size: 1.125rem;
-  color: #333;
-  margin-bottom: 0.625rem;
-}
-
-/* Container specific styles */
-.file-container {
+/* File List Container */
+.file-list-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 0.5rem;
+  max-height: 8rem;
+  overflow-y: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;  /* Align to the start vertically */
-  margin-top: 1.25rem;
-  width: 100%;
-  padding: 0 0.9375rem;  /* Added padding for better spacing on smaller screens */
-}
-
-/* File actions container */
-.file-actions {
-  display: flex;
-  gap: 0.9375rem;
-  justify-content: center;
-  margin-top: 1.25rem;
-  width: 100%; /* Ensure the file actions are centered within the container */
-  max-width: 31.25rem; /* Max width to keep the buttons from stretching too far */
-  margin-left: auto;
-  margin-right: auto; /* Center the action buttons */
-}
-
-/* Styling for buttons in the file-actions container */
-.file-actions button {
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(to right, #072ac8, #0093e9);
-  color: #fff;
-  border: none;
-  cursor: pointer;
+  border: 1px solid #072ac8;
   border-radius: 0.25rem;
-  transition: background-color 0.3s ease;
-  font-size: 1rem; /* Add font size for better readability */
+  padding: 0.5rem;
+  text-align: center;
+  
 }
 
-/* Hover effect for buttons */
-.file-actions button:hover {
-  background-color: #072ac8;
+.azure-cost-section.card {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column; 
+  padding: 1.25rem;
+  width: 100%; 
+  max-width: 80rem; 
+  margin: 0 auto; 
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for file items */
+
+/* Center everything inside the upload-container */
+
+.App1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  justify-content: flex-start; /* Align content at the top */
+  width: 100%;
+  padding: 2rem;
+}
+
+.Title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.file-list-container {
+  width: 100%;
+  max-width: 800px; /* Limit width for better readability */
+  margin-bottom: 1rem;
+}
+
 .file-item {
   display: flex;
   align-items: center;
-  justify-content: center; /* Center horizontally */
-  margin: 0.625rem 0;
+  padding: 0.5rem 0;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.file-actions {
+  display: flex;
+  justify-content: center; /* Center buttons */
+  gap: 1rem;
+  margin-top: 1rem;
   width: 100%;
-  padding:  0.3125rem 0;
-  max-width: 37.5rem; /* Keep file items from stretching too wide */
-  margin-left: auto;
-  margin-right: auto; /* Center the file items */
 }
 
-/* Styling for checkboxes inside file items */
-.file-item input[type="checkbox"] {
-  margin-right: 0.625rem;
-  transform: scale(1.2);  /* Slightly increase the size of the checkbox for better UX */
+.btn-action {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  background-color: #072ac8;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Download links section */
+.btn-action:hover {
+  background-color: #003e8e;
+}
+
 .download-links {
-  margin-top: 1.25rem;
+  margin-top: 2rem;
   text-align: center; /* Center the links */
   width: 100%;
 }
 
-/* Unordered list for download links */
 .download-links ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  max-width: 37.5rem; 
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* List item styling for download links */
 .download-links li {
-  margin: 0.3125rem 0;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center; /* Center the download links */
+  align-items: center;
 }
 
-/* Styling for download link */
 .download-links a {
   color: #072ac8;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem; 
+  margin-right: 1rem;
 }
 
-/* Hover effect for download links */
-.download-links a:hover {
-  text-decoration: underline;
-}
-
-/* Back button styling */
-.btn-back {
-  display: inline-block;
-  color: #fff;
-  background: linear-gradient(to right, #072ac8, #0093e9);
-  padding: 0.625rem 1.25rem;
-  border-radius: 0.3125rem;
-  margin-top: 1.25rem;
+.remove-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
   cursor: pointer;
+  font-size: 0.875rem;
   transition: background-color 0.3s ease;
-  font-size: 1rem;
-  text-align: center;
 }
 
-/* .btn-back:hover {
+.remove-btn:hover {
+  background-color: #d32f2f;
+}
+
+.btn-back {
   background-color: #072ac8;
-} */
-
-/* App1 section positioning */
-.App1 {
-  margin-left: auto;
-  margin-right: 9.375rem;
-  width: 100%;
-  max-width: 56.25rem; 
-  padding: 0 0.9375rem; 
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
 }
 
-/* Button Container
-.container-cards.btn-container-action{
-    background: linear-gradient(to right, #072ac8, #0093e9);
-} */
+.btn-back:hover {
+  background-color: #003e8e;
+}
+
+/* Sidebar adjustments */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 250px;
+  margin-right: 1rem;
+}
+
+/* Footer styling (optional) */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: #777;
+}
+
+/* General text styling */
+.upload-title, .user-welcome, .file-item h3 {
+  font-size: 1.5rem; 
+  color: #072ac8; 
+  font-weight: bold;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+
+.upload-title, .user-welcome {
+  animation: fadeInUp 1s ease-out forwards; 
+}
+
+
+.upload-title:hover, .user-welcome:hover {
+  color: #003e8e; 
+  transform: scale(1.05); 
+}
+
+
+.file-item h3 {
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.file-item h3:hover {
+  color: #072ac8; 
+  transform: translateX(5px); 
+}
+/* General styling for welcome message */
+.admin-welcome {
+  font-size: 1.75rem; 
+  color: #072ac8; 
+  text-align: center; 
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.admin-welcome {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+
+.admin-welcome:hover {
+  color: #003e8e; 
+  transform: scale(1.05); 
+}
+
+.admin-welcome{
+  color:#072ac8 ;
+}

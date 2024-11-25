@@ -15,6 +15,7 @@ const Chatbot = () => {
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState('chatbot'); // Change Tab
     const [isTabOpen, setIsTabOpen] = useState(true); 
+    // const [file, setFile] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -63,10 +64,12 @@ const Chatbot = () => {
 
             // Example chat request
             const chatRequest = { question: message, history: history };
-            const response = await axios.post('http://localhost:5003/own-data', chatRequest);
+            const response = await axios.post('http://localhost:5003/chat-owndata', chatRequest);
 
-            const botResponse = response.data.content;
-            setHistory(prevHistory => [...prevHistory.slice(0, -1), { user: userMessage, bot: botResponse }]);
+            const botResponse = response.data.answer;
+            // const formattedResponse = formatLongMessage(botResponse);
+            setHistory(prevHistory => [...prevHistory.slice(0, -1), { user: userMessage, bot: botResponse}]);
+            // setHistory(prevHistory => [...prevHistory.slice(0, -1), { user: userMessage, bot: formattedResponse.join("/n") }]);
         } catch (error) {
             console.error('Error while submitting message:', error);
             setHistory(prevHistory => [...prevHistory.slice(0, -1), { user: userMessage, bot: "Sorry, something went wrong. Please try again." }]);
@@ -74,6 +77,126 @@ const Chatbot = () => {
             setLoading(false);
         }
     };
+
+
+    // Handle chat dify
+    // const handleChatSubmit = async () => {
+    //     if (message.trim() === "") return;
+    //     setLoading(true);
+    //     setMessage('');  // Clear the input field
+    //     const userMessage = message;
+    //     // const formdata = new FormData();
+    //     // formdata.append("file",file);
+    //     // const formdata = new FormData();
+    //     // formdata.append("files", file);
+    //     try {
+    //         // Log the request payload to ensure it's correct
+    //         // console.log("Request Payload:", {
+    //         //     'inputs': {},
+    //         //     'query': userMessage,
+    //         //     'response_mode': "blocking",
+    //         //     'conversation_id': "",
+    //         //     'user': "abc-123"
+    //         // });
+    //         setHistory(prevHistory => [...prevHistory, { user: userMessage, bot: '...' }]);
+    //         const response = await axios.post('http://localhost/v1/chat-messages', {
+    //             'inputs': {},  
+    //             'query': userMessage,
+    //             'response_mode': "blocking",
+    //             'conversation_id': "",
+    //             'user': "abc-123",
+    //             "files": [
+    //                 {
+    //                   "type": "image",
+    //                   "transfer_method": "remote_url",
+    //                   "url": "https://img.freepik.com/premium-vector/cute-robot-mascot-logo-cartoon-character-illustration_8169-227.jpg"
+    //                 }
+    //               ]
+    //         }, {
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': 'Bearer app-k63riE2SaYfVXxeocpYEjUcJ', 
+    //             }
+    //         });
+    //         console.log("Full Response:", response);
+    
+    //         const botResponse = response.data.answer || "Sorry, I couldn't understand your request.";  
+    //         console.log("Bot:", botResponse);
+    
+    //         setHistory(prevHistory => [
+    //             ...prevHistory.slice(0, -1),
+    //             { user: userMessage, bot: botResponse }
+    //         ]);
+    //     } catch (error) {
+    //         console.error('Error while submitting message:', error);
+    //         setHistory(prevHistory => [
+    //             ...prevHistory.slice(0, -1), // Remove last item (placeholder)
+    //             { user: userMessage, bot: "Sorry, something went wrong. Please try again." }
+    //         ]);
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
+    // Handle File Dify
+    // const handleFileSubmit = async () => {
+    //     if (!file) return; 
+    
+    //     setLoading(true); 
+    
+    //     const formdata = new FormData();
+    //     formdata.append("inputs", "{}"); 
+    //     formdata.append("query", ''); 
+    //     formdata.append("response_mode", "blocking");
+    //     formdata.append("conversation_id", ""); 
+    //     formdata.append("user", "abc-123"); 
+    
+    //     // Append the file to FormData
+    //     formdata.append("files", file);
+    
+    //     // const token = 'app-1EvfwguIh20thC4yFJe6XALc'; 
+    
+    //     try {
+    //         // Note: Don't set Content-Type header manually when using FormData
+    //         const response = await axios.post('http://localhost/v1/chat-messages', formdata, {
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer app-XjNp3pxHLZ2AwA1ZMbVdIzAy`,
+    //             },
+    //             withCredentials: true, // Send cookies if required by the server
+    //         });
+    
+    //         // Handle bot response
+    //         const botResponse = response.data.answer || "Sorry, I couldn't understand your request.";
+    //         setHistory(prevHistory => [
+    //             ...prevHistory.slice(0, -1),
+    //             { user: 'File uploaded', bot: botResponse },
+    //         ]);
+    //     } catch (error) {
+    //         console.error('Error while submitting file:', error);
+    //         setHistory(prevHistory => [
+    //             ...prevHistory.slice(0, -1),
+    //             { user: 'File uploaded', bot: "Sorry, something went wrong. Please try again." },
+    //         ]);
+    //     } finally {
+    //         setLoading(false); // Hide loading spinner
+    //     }
+    // };
+    
+    // const handleFileChange = (e) => {
+    //     const selectedFile = e.target.files[0];
+    //     setFile(selectedFile);
+    // };
+    
+    //FormatLong Message
+    // const formatLongMessage = (message, maxLength = 50) => {
+    //     const lines = [];
+    //     for (let i = 0; i < message.length; i += maxLength) {
+    //         const line = message.slice(i, i + maxLength);
+    //         lines.push(i === 0 ? line : `• ${line}`); 
+    //     }
+    //     return lines.join("\n"); 
+    // };
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter' && message.trim() !== "") {
@@ -86,7 +209,7 @@ const Chatbot = () => {
       };
 
     const toggleTab = () => {
-        setIsTabOpen(!isTabOpen); // Đảo ngược trạng thái của tab
+        setIsTabOpen(!isTabOpen); // change Tab
     };
     return (
         <div className="Container-ChatBot">
@@ -161,6 +284,9 @@ const Chatbot = () => {
                                         {msg.bot && (
                                             <div className="message-bubble bot">
                                                 <span className="message-content">{msg.bot}</span>
+                                                {/* {msg.bot.split("\n").map((line, idx) => (
+                                                    <p key={idx} className="formatted-line">{line}</p>
+                                                ))} */}
                                             </div>
                                         )}
 
@@ -193,6 +319,20 @@ const Chatbot = () => {
                             disabled={loading || message.trim() === ""}>
                                 <FaPaperPlane style={{ fontSize: '15px', marginRight: '5px' }}/> Send
                             </button>
+                             {/* Input file for uploading an image */}
+                              {/* <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                className="file-input"
+                            />
+                            <button
+                                className="file-send-btn"
+                                onClick={handleFileSubmit}
+                                disabled={loading || !file}
+                            >
+                                Send Image
+                            </button>  */}
                         </div>
                          )}
                     </div>
@@ -208,5 +348,6 @@ const Chatbot = () => {
         </div>
     );
 };
+
 
 export default Chatbot;

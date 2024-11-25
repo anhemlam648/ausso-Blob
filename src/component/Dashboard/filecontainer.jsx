@@ -13,6 +13,7 @@ function FileContainer() {
   const [selectedFiles, setSelectedFiles] = useState([]);  
   const [isAuthenticated, setIsAuthenticated] = useState(false); 
   const [downloadUrls, setDownloadUrls] = useState([]);
+  // const [removefile, setRemoveFile] = useState(false)
   // Kiểm tra tính xác thực người dùng
   const navigate = useNavigate();
   const checkAuth = async () => {
@@ -44,18 +45,22 @@ function FileContainer() {
     }
   };
 
-  // Lấy danh sách các file đã chọn (tích checkbox)
-  const handleCheckboxChange = (fileName) => {
-    setSelectedFiles((prevSelected) => {
-      if (prevSelected.includes(fileName)) {
-        return prevSelected.filter(file => file !== fileName);  // Nếu đã chọn thì bỏ chọn
-      } else {
-        return [...prevSelected, fileName];  
-        
-      }
-    });
-  };
 
+
+
+    // Lấy danh sách các file đã chọn (tích checkbox)
+    const handleCheckboxChange = (fileName) => {
+      setSelectedFiles((prevSelected) => {
+        if (prevSelected.includes(fileName)) {
+          return prevSelected.filter(file => file !== fileName);  // Nếu đã chọn thì bỏ chọn
+        } else {
+          return [...prevSelected, fileName];  
+          
+        }
+      });
+    };
+
+ 
 //   // Tải xuống các file đã chọn
 //   const handleDownload = async () => {
 //     try {
@@ -150,6 +155,7 @@ function FileContainer() {
           console.error("Download failed", error);
         }
       };
+
   // Xóa các file đã chọn
   const handleDelete = async () => {
     try {
@@ -170,6 +176,16 @@ function FileContainer() {
       console.error("Delete failed", error);
     }
   };
+
+   // Xóa file khỏi danh sách tải xuống và bỏ chọn checkbox
+   const handleRemoveFile = (fileName) => {
+    // Xóa file khỏi danh sách URL tải xuống
+    setDownloadUrls((prevUrls) => prevUrls.filter((url) => url.fileName !== fileName));
+
+    // Bỏ chọn file khỏi selectedFiles
+    setSelectedFiles((prevSelected) => prevSelected.filter((file) => file !== fileName));
+  };
+
 
   // useEffect để kiểm tra 
   useEffect(() => {
@@ -198,7 +214,8 @@ function FileContainer() {
             {files.length === 0 ? (
               <p>No files available.</p>
             ) : (
-              <div>
+              <div className="File-action">
+               <div className="file-list-container">
                 <ul>
                   {files.map((file, index) => (
                     <li key={index} className="file-item">
@@ -207,13 +224,18 @@ function FileContainer() {
                         onChange={() => handleCheckboxChange(file)}
                         checked={selectedFiles.includes(file)}
                       />
-                      <span>{file}</span>
+                      {
+                      <div>
+                        <span>{file}</span>
+                        </div> 
+                      }
                     </li>
                   ))}
                 </ul>
+              </div>
                 <div className="file-actions">
                   <button onClick={handleDownload} className="btn-action">Download Link File Selected</button>
-                  <button onClick={handleDelete} className="btn-action">Delete Selected</button>
+                  <button onClick={handleDelete} className="btn-action">Delete File Selected</button>
                 </div>
                 <div>
                     {downloadUrls.length > 0 && (
@@ -225,6 +247,7 @@ function FileContainer() {
                                 <a href={link.url} download={link.fileName}>
                                 {link.fileName}
                                 </a>
+                                <button onClick={() => handleRemoveFile(link.fileName)} className="remove-btn">X</button>
                             </li>
                             ))}
                         </ul>

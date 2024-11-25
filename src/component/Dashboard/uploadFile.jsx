@@ -20,13 +20,13 @@ function Uploadfile(){
     try {
       const response = await axios.get("http://localhost:5010/api/v1/get-all-container");
       if (response.data && response.data.container) {
-        setContainers(response.data.container); // Update containers state with the response
+        setContainers(response.data.container); 
       } else {
-        setContainers([]); // Handle the case when no containers are returned
+        setContainers([]); 
       }
     } catch (error) {
       console.error("Error fetching containers:", error);
-      setContainers([]); // If there's an error, clear the containers
+      setContainers([]); 
     }
   };
 
@@ -106,7 +106,6 @@ function Uploadfile(){
         const formData = new FormData();
         formData.append("files", file);
         formData.append("container", container);
-        
         
         // console.log("Form Data being sent:", formData);
         console.log('FormData:', formData);
@@ -262,7 +261,8 @@ function Uploadfile(){
                     <div className="upload-buttons-container">
                     
                     {/* Dropdown for selecting container */}
-                    <select onChange={(e) => handleContainer(e.target.value)} className="dropDown" style={{padding:"0.625rem",borderRadius:"0.8125rem"}}>
+                    {/* <select onChange={(e) => handleContainer(e.target.value)} className="dropDown" style={{padding:"0.625rem",borderRadius:"0.8125rem"}}> */}
+                     <select onChange={(e) => handleContainer(e.target.value)} className="dropDown" style={{padding:"0.625rem",borderRadius:"0.8125rem"}}> 
                       <option value="">Select Container</option>
                       {containers.length > 0 ? (
                         containers.map((container, index) => (
